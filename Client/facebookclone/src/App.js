@@ -5,7 +5,7 @@ import store from "./redux/store.js";
 function App() {
   return (
     <Provider store={store}>
-      <div className="App"></div>;
+      <div className="App">This is the home page</div>;
     </Provider>
   );
 }
