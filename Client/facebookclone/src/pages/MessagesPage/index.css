@@ -1,0 +1,438 @@
+.MessagesPageContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 1fr 0.5fr;
+      grid-template-columns: 0.5fr 1fr 0.5fr;
+      grid-template-areas: "searchBar  individualmessages friendsInfo" "friendList individualmessages friendsInfo";
+  -ms-grid-rows: 125px 1fr;
+      grid-template-rows: 125px 1fr;
+  min-height: 100vh;
+  max-height: 100vh;
+  color: white;
+  background-color: #242526;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: searchBar;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar .MessagesPageContainer__searchBar__title {
+  font-size: 19px;
+  font-weight: bold;
+  margin: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding-left: 20px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar .MessagesPageContainer__searchBar__searchBarContainer {
+  width: 100%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar .MessagesPageContainer__searchBar__searchBarContainer .MessagesPageContainer__searchBar__searchBarContainer__form {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar .MessagesPageContainer__searchBar__searchBarContainer .MessagesPageContainer__searchBar__searchBarContainer__form .MessagesPageContainer__searchBar__searchBarContainer__form__input {
+  width: 90%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar .MessagesPageContainer__searchBar__searchBarContainer .MessagesPageContainer__searchBar__searchBarContainer__form .MessagesPageContainer__searchBar__searchBarContainer__form__input > .MuiInputBase-input {
+  color: aliceblue;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar .MessagesPageContainer__searchBar__searchBarContainer .MessagesPageContainer__searchBar__searchBarContainer__form .MessagesPageContainer__searchBar__searchBarContainer__form__input > label {
+  color: aliceblue;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: friendList;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList:nth-child(1) {
+  padding-top: 10px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList .MessagesPageContainer__friendList__IndividualFriends {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.5fr 1fr 1fr;
+      grid-template-columns: 0.5fr 1fr 1fr;
+      grid-template-areas: "profileImageContainer messageInfoContainer .";
+  height: 75px;
+  margin-left: 8px;
+  width: 100%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList .MessagesPageContainer__friendList__IndividualFriends:hover {
+  background-color: #303233;
+  border-radius: 8px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList .MessagesPageContainer__friendList__IndividualFriends .MessagesPageContainer__friendList__IndividualFriends__ImageContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: profileImageContainer;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList .MessagesPageContainer__friendList__IndividualFriends .MessagesPageContainer__friendList__IndividualFriends__ImageContainer > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList .MessagesPageContainer__friendList__IndividualFriends .MessagesPageContainer__friendList__IndividualFriends__InfoContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: messageInfoContainer;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList .MessagesPageContainer__friendList__IndividualFriends .MessagesPageContainer__friendList__IndividualFriends__InfoContainer > p:nth-child(1) {
+  margin-top: 8px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList .MessagesPageContainer__friendList__IndividualFriends .MessagesPageContainer__friendList__IndividualFriends__InfoContainer > p {
+  font-size: 14px;
+  margin: 0px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 8px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 25px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList:hover::-webkit-scrollbar {
+  width: 8px;
+  background-color: dimgray;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendList:hover::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 8px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: individualmessages;
+  border-left: 1px solid #8f8f8f;
+  border-right: 1px solid #8f8f8f;
+  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 0.01fr 1fr 0.01fr;
+      grid-template-rows: 0.01fr 1fr 0.01fr;
+      grid-template-areas: "individualMessagesTopbar" "individualMessagesContainer" "individualMessagesBottomBar";
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: individualMessagesTopbar;
+  height: 75px;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid black;
+  background-color: #242526;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15px 0.001fr 1fr 1fr;
+      grid-template-columns: 15px 0.001fr 1fr 1fr;
+      grid-template-areas: ". topBarProfileImageContainer topBarPersonInforContainer .";
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__ImageContainer {
+  height: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: topBarProfileImageContainer;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__ImageContainer > img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__personInfoContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: topBarPersonInforContainer;
+  margin-left: 10px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__personInfoContainer > p:nth-child(1) {
+  margin-bottom: 0px;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__personInfoContainer > p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: individualMessagesContainer;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% minmax(1ch, 80%);
+      grid-template-columns: 20% minmax(1ch, 80%);
+      grid-template-areas: ". EachMessageSentTextContainer";
+  margin-bottom: 10px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent__textContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: EachMessageSentTextContainer;
+  background-color: #1599db;
+  border-radius: 20px;
+  margin-left: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent__textContainer > p {
+  padding: 10px;
+  margin: 0px;
+  font-size: 14px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessages {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 10px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessages .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__imageContainer {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessages .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__imageContainer > img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessages .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__textContainer {
+  max-width: 50%;
+  width: auto;
+  min-width: 1ch;
+  background-color: #3e4042;
+  border-radius: 20px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer .MessagesPageContainer__individualMessages__messagesContainer__EachMessages .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__textContainer > p {
+  padding: 10px;
+  margin: 0px;
+  font-size: 14px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer:hover::-webkit-scrollbar {
+  width: 5px;
+  background-color: dimgray;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer:hover::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 5px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: individualMessagesBottomBar;
+  height: 75px;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr 60px;
+      grid-template-columns: 100px 1fr 60px;
+      grid-template-areas: "bottomBarImagesUpload bottomBarInputHolder bottomBarSendbutton";
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: bottomBarImagesUpload;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer__uploadImages {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__inputHolder {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: bottomBarInputHolder;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__inputHolder .MessagesPageContainer__individualMessages__bottomBar__inputHolder__input {
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: black;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__inputHolder .MessagesPageContainer__individualMessages__bottomBar__inputHolder__input > div > .MuiFilledInput-inputMultiline {
+  color: aliceblue;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: bottomBarSendbutton;
+  height: 100%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer .MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer__button {
+  height: 56px;
+  width: 100%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: friendsInfo;
+  border-right: 1px solid #8f8f8f;
+  overflow-y: scroll;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo:hover::-webkit-scrollbar {
+  width: 5px;
+  background-color: dimgray;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo:hover::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 5px;
+}
+/*# sourceMappingURL=index.css.map */

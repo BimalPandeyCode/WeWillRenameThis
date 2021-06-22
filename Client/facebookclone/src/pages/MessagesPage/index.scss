@@ -1,0 +1,347 @@
+.MessagesPageContainer {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-areas:
+    "searchBar  individualmessages friendsInfo"
+    "friendList individualmessages friendsInfo";
+  grid-template-rows: 125px 1fr;
+  min-height: 100vh;
+  max-height: 100vh;
+  color: white;
+  background-color: #242526;
+  overflow: hidden;
+  z-index: 2;
+
+  .MessagesPageContainer__searchBar {
+    grid-area: searchBar;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+
+    .MessagesPageContainer__searchBar__title {
+      font-size: 19px;
+      font-weight: bold;
+      margin: 15px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      padding-left: 20px;
+    }
+
+    .MessagesPageContainer__searchBar__searchBarContainer {
+      width: 100%;
+
+      .MessagesPageContainer__searchBar__searchBarContainer__form {
+        width: 100%;
+
+        display: grid;
+        place-items: center;
+        .MessagesPageContainer__searchBar__searchBarContainer__form__input {
+          width: 90%;
+
+          & > .MuiInputBase-input {
+            color: aliceblue;
+          }
+          & > label {
+            color: aliceblue;
+          }
+        }
+      }
+    }
+  }
+  .MessagesPageContainer__friendList {
+    grid-area: friendList;
+    // border-left: 1px solid #8f8f8f;
+    // border-top: 1px solid #8f8f8f;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &:nth-child(1) {
+      padding-top: 10px;
+    }
+    .MessagesPageContainer__friendList__IndividualFriends {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr 1fr;
+      grid-template-areas: "profileImageContainer messageInfoContainer .";
+      height: 75px;
+      margin-left: 8px;
+      width: 100%;
+      &:hover {
+        background-color: lighten($color: #242526, $amount: 5%);
+        border-radius: 8px;
+      }
+
+      .MessagesPageContainer__friendList__IndividualFriends__ImageContainer {
+        grid-area: profileImageContainer;
+        height: 100%;
+        display: grid;
+        place-items: center;
+
+        & > img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+      }
+
+      .MessagesPageContainer__friendList__IndividualFriends__InfoContainer {
+        grid-area: messageInfoContainer;
+
+        & > p:nth-child(1) {
+          margin-top: 8px;
+          margin-bottom: 5px;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        & > p {
+          font-size: 14px;
+          margin: 0px;
+        }
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: black;
+      width: 8px;
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 25px;
+    }
+    &:hover {
+      &::-webkit-scrollbar {
+        width: 8px;
+        background-color: rgb(105, 105, 105);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: black;
+        width: 8px;
+      }
+    }
+  }
+  .MessagesPageContainer__individualMessages {
+    grid-area: individualmessages;
+    border-left: 1px solid #8f8f8f;
+    border-right: 1px solid #8f8f8f;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 0.01fr 1fr 0.01fr;
+    grid-template-areas:
+      "individualMessagesTopbar"
+      "individualMessagesContainer"
+      "individualMessagesBottomBar";
+
+    .MessagesPageContainer__individualMessages__topBar {
+      grid-area: individualMessagesTopbar;
+      height: 75px;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid black;
+      background-color: #242526;
+      display: grid;
+      grid-template-columns: 15px 0.001fr 1fr 1fr;
+      grid-template-areas: ". topBarProfileImageContainer topBarPersonInforContainer .";
+
+      .MessagesPageContainer__individualMessages__topBar__ImageContainer {
+        height: 100%;
+        grid-area: topBarProfileImageContainer;
+        display: grid;
+        place-items: center;
+
+        & > img {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+        }
+      }
+      .MessagesPageContainer__individualMessages__topBar__personInfoContainer {
+        grid-area: topBarPersonInforContainer;
+        margin-left: 10px;
+        & > p:nth-child(1) {
+          margin-bottom: 0px;
+          margin-top: 8px;
+          font-weight: bold;
+          font-size: 18px;
+        }
+        & > p {
+          margin: 0;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .MessagesPageContainer__individualMessages__messagesContainer {
+      grid-area: individualMessagesContainer;
+      height: 100%;
+      width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent {
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 20% minmax(1ch, 80%);
+        grid-template-areas: ". EachMessageSentTextContainer";
+        margin-bottom: 10px;
+        .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent__textContainer {
+          grid-area: EachMessageSentTextContainer;
+          background-color: #1599db;
+          border-radius: 20px;
+          margin-left: auto;
+          width: fit-content;
+
+          & > p {
+            padding: 10px;
+            margin: 0px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .MessagesPageContainer__individualMessages__messagesContainer__EachMessages {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        height: fit-content;
+        margin-bottom: 10px;
+        .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__imageContainer {
+          height: 100%;
+          display: flex;
+          justify-content: end;
+          align-items: flex-end;
+          & > img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            // margin-top: 100%;
+          }
+        }
+
+        .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__textContainer {
+          max-width: 50%;
+          width: auto;
+          min-width: 1ch;
+          background-color: #3e4042;
+          border-radius: 20px;
+          & > p {
+            padding: 10px;
+            margin: 0px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 5px;
+
+        background-color: rgba(255, 255, 255, 0);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: black;
+        width: 5px;
+        background-color: rgba(255, 255, 255, 0);
+      }
+      &:hover {
+        &::-webkit-scrollbar {
+          width: 5px;
+          background-color: rgb(105, 105, 105);
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: black;
+          width: 5px;
+        }
+      }
+    }
+
+    .MessagesPageContainer__individualMessages__bottomBar {
+      grid-area: individualMessagesBottomBar;
+      height: 75px;
+      width: 100%;
+
+      position: sticky;
+      top: 100vh;
+
+      display: grid;
+      grid-template-columns: 100px 1fr 60px;
+      grid-template-areas: "bottomBarImagesUpload bottomBarInputHolder bottomBarSendbutton";
+
+      .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer {
+        grid-area: bottomBarImagesUpload;
+        display: grid;
+        place-items: center;
+
+        .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer__uploadImages {
+          width: fit-content;
+        }
+      }
+      .MessagesPageContainer__individualMessages__bottomBar__inputHolder {
+        grid-area: bottomBarInputHolder;
+
+        .MessagesPageContainer__individualMessages__bottomBar__inputHolder__input {
+          width: 100%;
+          height: 100%;
+          color: white;
+          background-color: black;
+          & > div > .MuiFilledInput-inputMultiline {
+            color: aliceblue;
+          }
+        }
+      }
+      .MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer {
+        grid-area: bottomBarSendbutton;
+        height: 100%;
+        .MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer__button {
+          height: 56px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .MessagesPageContainer__friendsInfo {
+    grid-area: friendsInfo;
+    border-right: 1px solid #8f8f8f;
+    // border-top: 1px solid #8f8f8f;
+    overflow-y: scroll;
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+
+      background-color: rgba(255, 255, 255, 0);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: black;
+      width: 5px;
+      background-color: rgba(255, 255, 255, 0);
+    }
+    &:hover {
+      &::-webkit-scrollbar {
+        width: 5px;
+        background-color: rgb(105, 105, 105);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: black;
+        width: 5px;
+      }
+    }
+  }
+}
