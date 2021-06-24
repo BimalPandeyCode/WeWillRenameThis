@@ -23,21 +23,31 @@ const ProfilePage = () => {
             <p className="profile__name__paragraph">1.8k friends</p>
         </div>
         <div className="btn btn-blue-1 profile__button">
-            <Link to="/message" className="remove-textdecoration text-white"><i className="fas fa-envelope u-margin-right"></i>Message</Link>
+            <Link to="/messages" className="remove-textdecoration text-white"><i className="fas fa-envelope u-margin-right"></i>Message</Link>
         </div>
+        
         
         
     
     </div>
+    <section className="profile_information">
+            <ProfileIntro />
+            <ProfileIntro />
+            <Photos />
+            <Friends />
         </section>
-        <ProfileIntro />
-        <Photos />
-        <Friends />
+        
+        
     <section className="profile__posts">
-    <Post />
-    <Post />
-    <Post />
-    </section>  
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+    </section> 
+        </section>
+
+         
    
     </>
    

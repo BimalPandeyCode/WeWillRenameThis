@@ -5,8 +5,8 @@ import jwt from 'jsonwebtoken';
 import { check, validationResult } from 'express-validator';
 import User from '../model/User.js';
 
-// @route   POST api/user
-// @desc    Register user 
+// @route   POST api/auth
+// @desc    login user 
 // @access  Public
 router.post('/', [
     check('email','Please add a valid Email').isEmail(),

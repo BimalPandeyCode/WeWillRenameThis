@@ -3,7 +3,8 @@ import img from '../../img/pexels-pixabay-60597.jpg';
 
 const Friends = () => {
     return (
-        <div className="profile_container-2">
+       
+            <div className="profile_container">
         <h1 className="profile__photos__heading">Friends</h1>
         <p className="profile__photos__paragraph">1918</p>
         <div className="row ">
@@ -49,6 +50,8 @@ const Friends = () => {
               </div>
         </div>
     </div>
+      
+        
     )
 }
 

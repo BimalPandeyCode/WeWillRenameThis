@@ -19,7 +19,6 @@ router.post('/', [
             errors: errors.array()
         })
     }
-    console.log(req);
     
     try {
         let {name, email, password} = req.body;

@@ -15,8 +15,7 @@ body {
   font-family: 'Lato', 'sans-serif';
   font-weight: 400;
   line-height: 1.7;
-  background-color: #eee;
-  padding: 3rem; }
+  background-color: #eee; }
 
 .profilename {
   color: #000;
@@ -105,7 +104,6 @@ body {
       border-radius: 5px; }
   .btn-anchorgreen {
     margin-left: 8rem;
-    text-decoration: none;
     width: 28rem;
     background-color: green;
     padding: 1rem;
@@ -115,7 +113,6 @@ body {
   height: auto;
   width: 50rem;
   background-color: #fff;
-  margin-left: 50rem;
   padding: 1rem;
   text-align: center;
   border-radius: 1rem;
@@ -201,7 +198,24 @@ body {
 
 .profile {
   margin-left: 10rem;
-  position: relative; }
+  position: relative;
+  height: 100%;
+  transition: all 0.2s; }
+  .profile_section {
+    height: 70vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), white 50%); }
+  .profile_information {
+    position: sticky;
+    -webkit-position: sticky;
+    top: 0;
+    width: 40rem;
+    left: 25rem;
+    height: auto; }
+  .profile__posts {
+    position: absolute;
+    top: 52rem;
+    left: 61rem; }
   .profile__cover {
     border-radius: 1.2rem;
     width: 80%;
@@ -213,7 +227,7 @@ body {
     border-radius: 50%;
     margin-top: -7rem;
     margin-left: 22rem;
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: #fff; }
   .profile__photos {
     width: 10rem;
@@ -240,41 +254,13 @@ body {
     top: 39rem;
     right: 40rem; }
   .profile_container {
-    position: absolute;
-    top:60rem;
-    left:25rem;
     width: 35rem;
-    display: inline;
     background-color: #fff;
-    height: 100%;
+    height: auto;
     padding: 1rem;
+    margin: 1rem;
     border-radius: 2rem;
     box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2); }
-    .profile_container_div{
-      
-    }
-    .profile_container-1 {
-      position: absolute;
-      top:90rem;
-      left:25rem;
-      width: 35rem;
-      display: inline;
-      background-color: #fff;
-      height: auto;
-      padding: 1rem;
-      border-radius: 2rem;
-      box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2); }
-      .profile_container-2 {
-        position: absolute;
-        top:133rem;
-        left:25rem;
-        width: 35rem;
-        display: inline;
-        background-color: #fff;
-        height: auto;
-        padding: 1rem;
-        border-radius: 2rem;
-        box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2); }
   .profile_intro__icon {
     color: #777;
     width: 4px;
@@ -287,27 +273,16 @@ body {
     font-size: 1.5rem;
     border-bottom: 1px solid #f7f7f7;
     text-align: center; }
-  .profile_section{
-    width:100%;
-    background-color: #fff;
-    height:70vh;
-  }
-  .profile__posts{
-    position: absolute;
-    top:60rem;
-    left:60rem;
-  }
 
 .post {
   background-color: #fff;
   height: auto;
   width: 50rem;
   padding: 1.5rem;
-  margin:3rem;
   border-radius: .5rem;
   box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
-  position: relative; 
-  }
+  position: relative;
+  margin: 2rem; }
   .post::after {
     content: "";
     display: table;
