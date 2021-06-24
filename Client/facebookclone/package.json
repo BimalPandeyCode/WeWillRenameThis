@@ -15,9 +15,12 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "redux-devtools-extension": "^2.13.9",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

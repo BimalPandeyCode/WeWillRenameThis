@@ -1,0 +1,20 @@
+.post-comment{
+    padding:0rem;
+    margin:2rem;
+}
+.comment__user{
+    background-color: $color-grey-light-1 ;
+    display: inline-block;
+    width:60%;
+    margin-left: 1rem;
+    border-radius:2rem;
+    max-width:60rem;
+    width:auto;
+
+    &__text{
+        color:$color-black;
+        font-size:1.7rem;
+        margin:0 1.5rem;
+        
+    }
+}

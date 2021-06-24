@@ -1,0 +1,63 @@
+.signup{
+    height: auto;
+    width:50rem;
+    background-color: $color-white;
+    padding:1rem;
+    border-radius:1rem;
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
+    &__heading{
+        margin-left: 2rem;
+        font-size:3rem;
+    }
+    &__paragraph{
+        font-size:1.4rem;
+        margin-left: 2rem;
+    }
+    &__inputs{
+        border-top: 1px solid $color-grey-light-1;
+        padding:1rem;
+        &__firstname,
+        &__lastname
+        {
+            height:5rem;
+            width:42.5%;
+            background-color:$color-grey-light-2;
+            border-radius:1rem;
+            margin: 1rem 1rem;
+            outline: none;
+            border:none;
+            padding:2rem;
+        }
+        
+        &__email,
+        &__password,
+        &__birthday{
+            height:5rem;
+            margin: 1rem 1rem;
+            width:90%;
+            background-color:$color-grey-light-2;
+            border-radius:1rem;
+            outline: none;
+            border:none;
+            padding:2rem;
+        }
+        &__gender{
+            display:inline-block;
+            font-size:1.5rem;
+            
+            height:5rem;
+            width:26.5%;
+            background-color:$color-grey-light-2;
+            border-radius:1rem;
+            margin: 1rem 1rem;
+            outline: none;
+            border:none;
+            padding:0.9rem;
+            &__checkbox{
+                margin-left:2rem;
+            }
+        }
+    
+       
+    }
+}

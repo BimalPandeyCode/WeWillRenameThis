@@ -1,0 +1,32 @@
+.btn{
+    width:90%;
+    border-radius: 5px;
+    
+    margin:1rem 3rem;
+    text-align: center;
+    font-size:2rem;
+    &-blue{
+        background-color: $color-blue-1;
+        &:active{
+            transform: scale(0.98);
+        }
+        &-1{
+            display:inline-block;
+            margin-left: 8rem;
+            text-decoration: none;
+            width:auto;
+            background-color: $color-blue-1;
+            padding:1.3rem;
+            border-radius: 5px;
+        }
+    }
+    &-anchorgreen{
+        margin-left: 8rem;
+        width:28rem;
+        background-color: $color-green-1;
+        padding:1rem;
+        border-radius: 5px;
+        
+    }
+
+}

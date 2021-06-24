@@ -1,0 +1,72 @@
+.post{
+    background-color: $color-white;
+    height:auto;
+    width:50rem;
+    padding:1.5rem;
+    border-radius:.5rem;
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
+    position: relative;
+    @include clearfix;
+    &__comments,
+    &__likes{
+        color:$color-black;
+    }
+
+    &__profilepicture{
+        height:5rem;
+        width:5rem;
+        border-radius:50%;
+        background-size: cover;
+        float:left;
+        &__comment{
+            height:4rem;
+            width:4rem;
+            border-radius:50%;
+            background-size: cover;
+            float:left;
+        }
+        &__addcomment{
+                padding: 1rem;
+                height:4rem;
+                margin-left: 1rem;
+                width:85%;
+                background-color:$color-grey-light-2;
+                border-radius:1rem;
+                outline: none;
+                border:none;
+            
+            
+        }
+    }
+    &__time{
+        color:$color-black;
+        font-size:1.2rem;
+        margin-left:.5rem;
+    }
+    
+    &__postimage{
+        height:38rem;
+        &--1{
+        width:50rem;
+        background-size: cover;
+        position:absolute;
+        left:0;
+    }
+    
+}
+   
+}
+span{
+    padding-left: .4rem;
+}
+.like,
+.comment{
+    width: 100%;
+}
+.like:hover{
+    background-color: $color-grey-light-2;
+}
+
+.comment:hover{
+    background-color: $color-grey-light-2;
+}
