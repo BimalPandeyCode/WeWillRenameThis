@@ -2,15 +2,42 @@
   display: grid;
   grid-template-columns: 0.5fr 1fr 0.5fr;
   grid-template-areas:
+    "NavBar NavBar NavBar"
     "searchBar  individualmessages friendsInfo"
     "friendList individualmessages friendsInfo";
-  grid-template-rows: 125px 1fr;
+  grid-template-rows: 57px 125px 1fr;
   min-height: 100vh;
   max-height: 100vh;
   color: white;
   background-color: #242526;
   overflow: hidden;
   z-index: 2;
+
+  .NavBar {
+    grid-area: NavBar;
+    border-bottom: 1px solid #8f8f8f;
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr;
+    grid-template-areas: "navbarTitle navbarSearchbar .";
+    .NavBar__title {
+      grid-area: navbarTitle;
+    }
+    .NavBar__searchBar {
+      grid-area: navbarSearchbar;
+
+      display: grid;
+      place-items: center;
+      .NavBar__searchBar__form {
+        width: 70%;
+        .NavBar__searchBar__form__input {
+          width: 100%;
+          margin-top: auto;
+          background-color: lighten($color: #000000, $amount: 50%);
+          border-radius: 10px;
+        }
+      }
+    }
+  }
 
   .MessagesPageContainer__searchBar {
     grid-area: searchBar;
