@@ -10,8 +10,9 @@ import Friends from "./friends.js";
 const ProfilePage = () => {
     return (
         <>
-        <section className="profile_section">
+        
         <div className="profile">
+        <section className="profile_section">
         <div className="profile__cover">
             <img src={img} alt="Cover photo" className="profile__cover" />
         </div>
@@ -25,29 +26,24 @@ const ProfilePage = () => {
         <div className="btn btn-blue-1 profile__button">
             <Link to="/messages" className="remove-textdecoration text-white"><i className="fas fa-envelope u-margin-right"></i>Message</Link>
         </div>
-        
-        
-        
-    
-    </div>
+        </section>
+       
     <section className="profile_information">
+        <div className="profile_information_intro">
             <ProfileIntro />
             <ProfileIntro />
             <Photos />
             <Friends />
-        </section>
-        
-        
-    <section className="profile__posts">
+        </div>
+        <section className="profile_information__posts">
         <Post />
         <Post />
         <Post />
         <Post />
         <Post />
-    </section> 
-        </section>
-
-         
+        </section> 
+    </section>
+</div>   
    
     </>
    

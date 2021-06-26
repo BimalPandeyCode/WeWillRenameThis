@@ -17,7 +17,7 @@ const App =() => {
     // <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/home">
             <HomePage />
           </Route>
           <Route exact path="/signin">

@@ -1,28 +1,43 @@
+
 .profile{
-    margin-left: 10rem;
     position: relative;
     height: 100%;
+    width: 100%;
     transition: all 0.2s;
     &_section{
         height:70vh;
         width:100%;
         background-image: linear-gradient(rgba($color-black, 0.2), rgba($color-white, 1) 50%);
+        
     }
     &_information{
-        position:sticky;
-        -webkit-position: sticky;
-        top:0;
         width:40rem;
-        left:25rem;
-        height:auto;
-       
-       
-    }
-    &__posts{
+        height:100%;
         position:absolute;
-        top: 52rem;
-        left:61rem;
+        top: 54rem;
+        left:22rem;
+       
+        
+        &_intro{
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+
+        }
+        &__posts{
+            position:absolute;
+            top:0rem;
+            left:36rem;
+            &-1{
+                position:absolute;
+                top:6rem;
+                left:46rem;
+            }
+            }
+       
+       
     }
+   
     &__cover{
         border-radius:1.2rem;
         width:80%;
@@ -49,8 +64,8 @@
         
     }
     &__photos{
-        width:10rem;
-        height:10rem;
+        width:9rem;
+        height:9rem;
         border-radius: 1rem;
         &__heading{
             font-size:2.6rem;
