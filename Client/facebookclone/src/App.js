@@ -10,7 +10,6 @@ import Messagespage from "./pages/MessagesPage/index.js";
 import SignInPage from "./pages/SignInPage/index.js";
 import LoginPage from "./pages/LoginPage/index";
 import ProfilePage from "./pages/Profile/index.js";
-import Navbar from "./Components/Navbar/Navbar.js";
 //!
 
 const App = () => {
@@ -18,11 +17,8 @@ const App = () => {
     // <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/home">
           <HomePage />
-        </Route>
-        <Route exact path="/navbar">
-          <Navbar />
         </Route>
         <Route exact path="/signin">
           <SignInPage />
