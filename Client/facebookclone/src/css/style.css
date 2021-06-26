@@ -202,40 +202,38 @@ body {
   width: 100%;
   transition: all 0.2s; }
   .profile_section {
-    height: 70vh;
+    height: 55rem;
     width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), white 50%); }
   .profile_information {
-    width: 40rem;
-    height: 100%;
-    position: absolute;
-    top: 54rem;
-    left: 22rem; }
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     .profile_information_intro {
-      position: -webkit-sticky;
+      width: 40rem;
+      margin-top: -210rem;
       position: sticky;
+      -webkit-position: sticky;
       top: 0; }
     .profile_information__posts {
-      position: absolute;
-      top: 0rem;
-      left: 36rem; }
-      .profile_information__posts-1 {
-        position: absolute;
-        top: 6rem;
-        left: 46rem; }
+      margin-left: -5rem; }
   .profile__cover {
     border-radius: 1.2rem;
     width: 80%;
-    height: 50vh;
+    height: 39rem;
     margin: 0 auto; }
+  .profile__profilepicture {
+    display: flex; }
   .profile__profilepicture-1 {
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
-    margin-top: -7rem;
-    margin-left: 22rem;
-    padding: 1rem;
-    background-color: #fff; }
+    margin-top: -5rem;
+    padding: 0.5rem;
+    background-color: #fff;
+    backface-visibility: hidden; }
   .profile__photos {
     width: 9rem;
     height: 9rem;
@@ -249,17 +247,13 @@ body {
       font-size: 1.4rem;
       font-weight: 600; }
   .profile__name {
-    position: absolute;
-    top: 39rem;
-    left: 45rem; }
+    margin-left: 1rem; }
     .profile__name__heading {
       font-size: 3rem; }
     .profile__name__paragraph {
       font-size: 2rem; }
   .profile__button {
-    position: absolute;
-    top: 39rem;
-    right: 40rem; }
+    margin-left: 10rem; }
   .profile_container {
     width: 35rem;
     background-color: #fff;
@@ -322,12 +316,11 @@ body {
     font-size: 1.2rem;
     margin-left: .5rem; }
   .post__postimage {
-    height: 38rem; }
+    height: 38rem;
+    margin-left: -1.5rem; }
     .post__postimage--1 {
       width: 50rem;
-      background-size: cover;
-      position: absolute;
-      left: 0; }
+      background-size: cover; }
 
 span {
   padding-left: .4rem; }

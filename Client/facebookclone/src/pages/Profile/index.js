@@ -15,33 +15,42 @@ const ProfilePage = () => {
         <section className="profile_section">
         <div className="profile__cover">
             <img src={img} alt="Cover photo" className="profile__cover" />
+            <div className="row">
+            <div className="col-1-of-2">
+ 
+                <div className="profile__profilepicture">
+                <img src={img} alt="Profile photo" className="profile__profilepicture-1"/>
+                <div className="profile__name">
+                    <h1 className="profile__name__heading">Pasang Sherpa</h1>
+                    <p className="profile__name__paragraph">1.8k friends</p>
+                </div>
+                
+                </div>
+            </div>
+         
+            <div className="col-1-of-2">
+                <div className="btn btn-blue-1 profile__button">
+                    <Link to="/messages" className="remove-textdecoration text-white"><i className="fas fa-envelope u-margin-right"></i>Message</Link>
+                </div>
+            </div>
         </div>
-        <div className="profile__profilepicture">
-            <img src={img} alt="Profile photo" className="profile__profilepicture-1"/>
         </div>
-        <div className="profile__name">
-            <h1 className="profile__name__heading">Pasang Sherpa</h1>
-            <p className="profile__name__paragraph">1.8k friends</p>
-        </div>
-        <div className="btn btn-blue-1 profile__button">
-            <Link to="/messages" className="remove-textdecoration text-white"><i className="fas fa-envelope u-margin-right"></i>Message</Link>
-        </div>
-        </section>
+        
+    </section>
        
     <section className="profile_information">
         <div className="profile_information_intro">
             <ProfileIntro />
-            <ProfileIntro />
             <Photos />
             <Friends />
         </div>
-        <section className="profile_information__posts">
+        <div className="profile_information__posts">
         <Post />
         <Post />
         <Post />
         <Post />
         <Post />
-        </section> 
+        </div> 
     </section>
 </div>   
    

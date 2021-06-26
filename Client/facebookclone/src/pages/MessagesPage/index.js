@@ -1,15 +1,52 @@
 import "./index.css";
 import SearchInput from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
+import Paper from "@material-ui/core/Paper";
+import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
 import React, { useEffect } from "react";
 
 const MessagesPage = () => {
   return (
     <div className="MessagesPageContainer">
+      <Navbar />
       <SideFriendsList />
       <SearchFriends />
       <IndividualMessages />
       <FriendsInfo />
+    </div>
+  );
+};
+
+const Navbar = () => {
+  return (
+    <div className="NavBar">
+      <div className="NavBar__title">We will rename this</div>
+      <div className="NavBar__searchBar">
+        <Paper
+          className="NavBar__searchBar__form"
+          component="form"
+          noValidate
+          autoComplete="off"
+        >
+          <SearchInput
+            className="NavBar__searchBar__form__input"
+            endIcon={<i className="fas fa-search" />}
+            // InputProps={{
+            // startAdornment: (
+
+            // ),}}
+            variant="outlined"
+            inputProps={{ style: { color: "white" } }}
+          >
+            <InputAdornment position="end">
+              <IconButton>
+                <i className="fas fa-search" />
+              </IconButton>
+            </InputAdornment>
+          </SearchInput>
+        </Paper>
+      </div>
     </div>
   );
 };
@@ -303,6 +340,7 @@ const IndividualMessages = () => {
         <div className="MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer">
           <Button
             variant="contained"
+            // endIcon={<i className="fas fa-search" />}
             className="MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer__button"
           >
             <i className="fas fa-paper-plane fa-2x"></i>

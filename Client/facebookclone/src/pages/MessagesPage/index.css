@@ -3,9 +3,9 @@
   display: grid;
   -ms-grid-columns: 0.5fr 1fr 0.5fr;
       grid-template-columns: 0.5fr 1fr 0.5fr;
-      grid-template-areas: "searchBar  individualmessages friendsInfo" "friendList individualmessages friendsInfo";
-  -ms-grid-rows: 125px 1fr;
-      grid-template-rows: 125px 1fr;
+      grid-template-areas: "NavBar NavBar NavBar" "searchBar  individualmessages friendsInfo" "friendList individualmessages friendsInfo";
+  -ms-grid-rows: 57px 125px 1fr;
+      grid-template-rows: 57px 125px 1fr;
   min-height: 100vh;
   max-height: 100vh;
   color: white;
@@ -14,8 +14,47 @@
   z-index: 2;
 }
 
-.MessagesPageContainer .MessagesPageContainer__searchBar {
+.MessagesPageContainer .NavBar {
   -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: NavBar;
+  border-bottom: 1px solid #8f8f8f;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 150px 1fr 1fr;
+      grid-template-columns: 150px 1fr 1fr;
+      grid-template-areas: "navbarTitle navbarSearchbar .";
+}
+
+.MessagesPageContainer .NavBar .NavBar__title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: navbarTitle;
+}
+
+.MessagesPageContainer .NavBar .NavBar__searchBar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: navbarSearchbar;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.MessagesPageContainer .NavBar .NavBar__searchBar .NavBar__searchBar__form {
+  width: 70%;
+}
+
+.MessagesPageContainer .NavBar .NavBar__searchBar .NavBar__searchBar__form .NavBar__searchBar__form__input {
+  width: 100%;
+  margin-top: auto;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__searchBar {
+  -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: searchBar;
   z-index: 1;
@@ -60,7 +99,7 @@
 }
 
 .MessagesPageContainer .MessagesPageContainer__friendList {
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: friendList;
   display: -webkit-box;
@@ -154,7 +193,7 @@
 }
 
 .MessagesPageContainer .MessagesPageContainer__individualMessages {
-  -ms-grid-row: 1;
+  -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   grid-area: individualmessages;
@@ -400,7 +439,7 @@
 }
 
 .MessagesPageContainer .MessagesPageContainer__friendsInfo {
-  -ms-grid-row: 1;
+  -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 3;
   grid-area: friendsInfo;

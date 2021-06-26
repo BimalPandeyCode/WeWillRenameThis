@@ -5,60 +5,56 @@
     width: 100%;
     transition: all 0.2s;
     &_section{
-        height:70vh;
+        height:55rem;
         width:100%;
         background-image: linear-gradient(rgba($color-black, 0.2), rgba($color-white, 1) 50%);
         
     }
     &_information{
-        width:40rem;
-        height:100%;
-        position:absolute;
-        top: 54rem;
-        left:22rem;
-       
-        
+        width:100%;
+        height:auto;
+        display:flex;
+        justify-content: center;
+        align-items: center;
         &_intro{
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-
+            width:40rem;
+            margin-top: -210rem;
+            position:sticky;
+            -webkit-position:sticky;
+            top:0;
         }
         &__posts{
-            position:absolute;
-            top:0rem;
-            left:36rem;
-            &-1{
-                position:absolute;
-                top:6rem;
-                left:46rem;
-            }
-            }
-       
+            margin-left:-5rem;
+        }
+
        
     }
    
     &__cover{
         border-radius:1.2rem;
         width:80%;
-        height:50vh;
+        height:39rem;
         margin:0 auto;
+    }
+    &__profilepicture{
+        display:flex;
+        
     }
     &__profilepicture-1{
         
         width:20rem;
         height:20rem;
         border-radius: 50%;
-        margin-top:-7rem;
-        margin-left:22rem;
-        padding: 1rem;
+        margin-top:-5rem;
+        padding:0.5rem;
         background-color: $color-white;
-        // &:after{
-        //     width:25rem;
-        //     height:25rem;
+        backface-visibility:hidden;
+       
+        
+        // &::after{
+        //     width:24rem;
+        //     height:24rem;
         //     border-radius: 50%;
-        //     margin-top:-7rem;
-        //     margin-left: 10rem;
         //     background-color: $color-white;
         // }
         
@@ -81,20 +77,18 @@
      
     }
     &__name{
-       position:absolute;
-       top:39rem; 
-       left: 45rem;
+       margin-left:1rem;
        &__heading{
-           font-size:3rem;
+           font-size:3rem;  
        }
        &__paragraph{
-           font-size: 2rem;
+           font-size: 2rem; 
        }
+
     }
     &__button{
-        position:absolute;
-        top:39rem;
-        right:40rem;
+
+       margin-left:10rem;
     }
     &_container{
         width:35rem;
