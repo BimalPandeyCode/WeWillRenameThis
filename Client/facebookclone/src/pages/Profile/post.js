@@ -7,12 +7,12 @@ const Post = () => {
         {/* <!-- Profile picture of the post admin --> */}
         <img src={img} alt="Profile picture" className="post__profilepicture"/>
         <h4 className="profilename">
-            <span>Dolma Sherpa</span>
+            Dolma Sherpa
         </h4>
         <p className="post__time">
-            <span>
+         
                 2 hrs  
-            </span>
+       
         </p>
         <p className="post__title">Dolma aunty</p>
         {/* <!-- Image of the post --> */}
