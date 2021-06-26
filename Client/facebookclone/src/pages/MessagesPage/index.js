@@ -1,52 +1,20 @@
 import "./index.css";
 import SearchInput from "@material-ui/core/TextField";
-import IconButton from "@material-ui/core/IconButton";
-import Paper from "@material-ui/core/Paper";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import Button from "@material-ui/core/Button";
 import React, { useEffect } from "react";
+
+import Navbar from "../../Components/Navbar/Navbar";
 
 const MessagesPage = () => {
   return (
     <div className="MessagesPageContainer">
-      <Navbar />
+      <div className="navbarcomponent">
+        <Navbar />
+      </div>
       <SideFriendsList />
       <SearchFriends />
       <IndividualMessages />
       <FriendsInfo />
-    </div>
-  );
-};
-
-const Navbar = () => {
-  return (
-    <div className="NavBar">
-      <div className="NavBar__title">We will rename this</div>
-      <div className="NavBar__searchBar">
-        <Paper
-          className="NavBar__searchBar__form"
-          component="form"
-          noValidate
-          autoComplete="off"
-        >
-          <SearchInput
-            className="NavBar__searchBar__form__input"
-            endIcon={<i className="fas fa-search" />}
-            // InputProps={{
-            // startAdornment: (
-
-            // ),}}
-            variant="outlined"
-            inputProps={{ style: { color: "white" } }}
-          >
-            <InputAdornment position="end">
-              <IconButton>
-                <i className="fas fa-search" />
-              </IconButton>
-            </InputAdornment>
-          </SearchInput>
-        </Paper>
-      </div>
     </div>
   );
 };
@@ -79,7 +47,8 @@ const SideFriendsList = () => {
       <div className="MessagesPageContainer__friendList__IndividualFriends">
         <div className="MessagesPageContainer__friendList__IndividualFriends__ImageContainer">
           <img
-            src="https://scontent.fmaa1-4.fna.fbcdn.net/v/t1.6435-1/c17.0.100.100a/p100x100/122283142_689463975284897_6192283090834406267_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=eJacrwatUHEAX8Rb3ci&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fmaa1-4.fna&tp=27&oh=e1cdc040b2f4dbbadcfb8ca37d036a26&oe=60D64FBE"
+            className="MessagesPageContainer__friendList__IndividualFriends__ImageContainer__image"
+            src="https://scontent.fktm6-1.fna.fbcdn.net/v/t1.6435-1/c17.0.100.100a/p100x100/122283142_689463975284897_6192283090834406267_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=goY93jDts0YAX-xTF7Q&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fktm6-1.fna&tp=27&oh=bfa92c8ed539effdd621db70c1ce2f13&oe=60DC3E7E"
             alt=""
           />
         </div>
@@ -124,7 +93,7 @@ const IndividualMessages = () => {
       <div className="MessagesPageContainer__individualMessages__messagesContainer__EachMessages">
         <div className="MessagesPageContainer__individualMessages__messagesContainer__EachMessages__imageContainer">
           <img
-            src="https://scontent.fmaa1-4.fna.fbcdn.net/v/t1.6435-1/c17.0.100.100a/p100x100/122283142_689463975284897_6192283090834406267_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=eJacrwatUHEAX8Rb3ci&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fmaa1-4.fna&tp=27&oh=e1cdc040b2f4dbbadcfb8ca37d036a26&oe=60D64FBE"
+            src="https://scontent.fktm6-1.fna.fbcdn.net/v/t1.6435-1/c17.0.100.100a/p100x100/122283142_689463975284897_6192283090834406267_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=goY93jDts0YAX-xTF7Q&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fktm6-1.fna&tp=27&oh=bfa92c8ed539effdd621db70c1ce2f13&oe=60DC3E7E"
             alt=""
           />
         </div>
@@ -156,7 +125,7 @@ const IndividualMessages = () => {
       <div className="MessagesPageContainer__individualMessages__topBar">
         <div className="MessagesPageContainer__individualMessages__topBar__ImageContainer">
           <img
-            src="https://scontent.fmaa1-4.fna.fbcdn.net/v/t1.6435-1/c17.0.100.100a/p100x100/122283142_689463975284897_6192283090834406267_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=eJacrwatUHEAX8Rb3ci&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fmaa1-4.fna&tp=27&oh=e1cdc040b2f4dbbadcfb8ca37d036a26&oe=60D64FBE"
+            src="https://scontent.fktm6-1.fna.fbcdn.net/v/t1.6435-1/c17.0.100.100a/p100x100/122283142_689463975284897_6192283090834406267_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=goY93jDts0YAX-xTF7Q&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fktm6-1.fna&tp=27&oh=bfa92c8ed539effdd621db70c1ce2f13&oe=60DC3E7E"
             alt=""
           />
         </div>
@@ -182,136 +151,6 @@ const IndividualMessages = () => {
         <Sentmessages />
         <ReceivedMessages />
         <ReceivedMessages />
-        {/*<p>
-          Side friend lis Side friend lis Side friend lis Side friend list Side
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis Side friend lis Side friend lis Side
-          friend lis Side friend list Side friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lis Side
-          friend lis Side friend lis Side friend lis Side friend list Side
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis Side friend lis Side friend lis Side
-          friend lis Side friend list Side friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lis Side
-          friend lis Side friend lis Side friend lis Side friend list Side
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis Side friend lis Side friend lis Side
-          friend lis Side friend list Side friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lis Side
-          friend lis Side friend lis Side friend lis Side friend list Side
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis Side friend lis Side friend lis Side
-          friend lis Side friend list Side friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lis Side
-          friend lis Side friend lis Side friend lis Side friend list Side
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis Side friend lis Side friend lis Side
-          friend lis Side friend list Side friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lis Side
-          friend lis Side friend lis Side friend lis Side friend list Side
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis Side friend lis Side friend lis Side
-          friend lis Side friend list Side friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lis Side
-          friend lis Side friend lis Side friend lis Side friend list Side
-           friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis Side friend lis Side friend lis Side
-          friend lis Side friend list Side friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lis Side
-          friend lis Side friend lis Side friend lis Side friend list Side
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lisSide friend lisSide friend lisSide
-          friend lisSide friend lisSide friend lisSide friend lisSide friend
-          lisSide friend lisSide friend lis 
-        </p>*/}
       </div>
       <div className="MessagesPageContainer__individualMessages__bottomBar">
         <div className="MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer">

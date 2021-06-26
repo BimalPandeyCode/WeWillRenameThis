@@ -10,32 +10,36 @@ import Messagespage from "./pages/MessagesPage/index.js";
 import SignInPage from "./pages/SignInPage/index.js";
 import LoginPage from "./pages/LoginPage/index";
 import ProfilePage from "./pages/Profile/index.js";
+import Navbar from "./Components/Navbar/Navbar.js";
 //!
 
-const App =() => {
+const App = () => {
   return (
     // <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/signin">
-            <SignInPage />
-          </Route>
-          <Route exact path="/profile">
-            <ProfilePage />
-          </Route>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="/messages">
-            <Messagespage />
-          </Route>
-        </Switch>
-      </Router>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/navbar">
+          <Navbar />
+        </Route>
+        <Route exact path="/signin">
+          <SignInPage />
+        </Route>
+        <Route exact path="/profile">
+          <ProfilePage />
+        </Route>
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/messages">
+          <Messagespage />
+        </Route>
+      </Switch>
+    </Router>
     // </Provider>
   );
-}
+};
 
 export default App;

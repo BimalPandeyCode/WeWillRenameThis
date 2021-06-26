@@ -5,7 +5,7 @@
     "NavBar NavBar NavBar"
     "searchBar  individualmessages friendsInfo"
     "friendList individualmessages friendsInfo";
-  grid-template-rows: 57px 125px 1fr;
+  grid-template-rows: auto 125px 1fr;
   min-height: 100vh;
   max-height: 100vh;
   color: white;
@@ -13,30 +13,8 @@
   overflow: hidden;
   z-index: 2;
 
-  .NavBar {
+  .navbarcomponent {
     grid-area: NavBar;
-    border-bottom: 1px solid #8f8f8f;
-    display: grid;
-    grid-template-columns: 150px 1fr 1fr;
-    grid-template-areas: "navbarTitle navbarSearchbar .";
-    .NavBar__title {
-      grid-area: navbarTitle;
-    }
-    .NavBar__searchBar {
-      grid-area: navbarSearchbar;
-
-      display: grid;
-      place-items: center;
-      .NavBar__searchBar__form {
-        width: 70%;
-        .NavBar__searchBar__form__input {
-          width: 100%;
-          margin-top: auto;
-          background-color: lighten($color: #000000, $amount: 50%);
-          border-radius: 10px;
-        }
-      }
-    }
   }
 
   .MessagesPageContainer__searchBar {
@@ -92,7 +70,7 @@
     }
     .MessagesPageContainer__friendList__IndividualFriends {
       display: grid;
-      grid-template-columns: 0.5fr 1fr 1fr;
+      grid-template-columns: 0.5fr 1fr auto;
       grid-template-areas: "profileImageContainer messageInfoContainer .";
       height: 75px;
       margin-left: 8px;
@@ -108,7 +86,7 @@
         display: grid;
         place-items: center;
 
-        & > img {
+        .MessagesPageContainer__friendList__IndividualFriends__ImageContainer__image {
           width: 60px;
           height: 60px;
           border-radius: 50%;
@@ -175,7 +153,7 @@
       border-bottom: 1px solid black;
       background-color: #242526;
       display: grid;
-      grid-template-columns: 15px 0.001fr 1fr 1fr;
+      grid-template-columns: 15px 0.001fr 1fr auto;
       grid-template-areas: ". topBarProfileImageContainer topBarPersonInforContainer .";
 
       .MessagesPageContainer__individualMessages__topBar__ImageContainer {
@@ -248,18 +226,17 @@
         .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__imageContainer {
           height: 100%;
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
           align-items: flex-end;
           & > img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            // margin-top: 100%;
           }
         }
 
         .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__textContainer {
-          max-width: 50%;
+          max-width: 80%;
           width: auto;
           min-width: 1ch;
           background-color: #3e4042;
@@ -303,16 +280,15 @@
       top: 100vh;
 
       display: grid;
-      grid-template-columns: 100px 1fr 60px;
+      grid-template-columns: 65px 1fr 60px;
       grid-template-areas: "bottomBarImagesUpload bottomBarInputHolder bottomBarSendbutton";
 
       .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer {
         grid-area: bottomBarImagesUpload;
-        display: grid;
-        place-items: center;
 
         .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer__uploadImages {
-          width: fit-content;
+          width: 90%;
+          height: 56px;
         }
       }
       .MessagesPageContainer__individualMessages__bottomBar__inputHolder {
@@ -370,5 +346,49 @@
         width: 5px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .MessagesPageContainer {
+    grid-template-columns: 0.001fr 1fr 0.5fr;
+  }
+  .MessagesPageContainer__friendList__IndividualFriends__ImageContainer {
+    & > img {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  .MessagesPageContainer__friendList__IndividualFriends__InfoContainer {
+    width: 0;
+    display: none;
+    opacity: 0;
+  }
+  .MessagesPageContainer__individualMessages__bottomBar {
+    grid-template-columns: 60px 1fr 60px;
+    .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer {
+      // width: 100%;
+      .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer__uploadImages {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .MessagesPageContainer {
+    grid-template-columns: 0.001fr 1fr 0px;
+    grid-template-areas:
+      "NavBar NavBar NavBar"
+      "searchBar  individualmessages friendsInfo"
+      "friendList individualmessages friendsInfo";
+  }
+  .MessagesPageContainer__friendList__IndividualFriends {
+    grid-template-columns: 10px;
+    grid-template-areas: "profileImageContainer";
+  }
+  .MessagesPageContainer__friendList__IndividualFriends__ImageContainer__image {
+    width: 10px;
+    height: 10px;
   }
 }
