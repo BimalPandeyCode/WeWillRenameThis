@@ -4,6 +4,8 @@ import img from "../../img/pexels-pixabay-60597.jpg";
 import { Link } from "react-router-dom";
 import Post from "./post.js";
 import ProfileIntro from "./ProfileIntro.js";
+import Photos from "./Photos.js";
+import Friends from "./friends.js";
 
 const ProfilePage = () => {
   return (
@@ -44,8 +46,8 @@ const ProfilePage = () => {
         <section className="profile_information">
           <div className="profile_information_intro">
             <ProfileIntro />
-            {/* <Photos />
-            <Friends /> */}
+            <Photos />
+            <Friends />
           </div>
           <div className="profile_information__posts">
             <Post />

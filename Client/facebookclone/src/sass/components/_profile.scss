@@ -82,4 +82,30 @@
   &__button {
     margin-left: 10rem;
   }
+  &_intro{
+        
+    &__icon{
+        color:$color-grey-dark;
+        width:4px;
+        margin-right: 3rem;
+    }
+    &__paragraph{
+        padding: 1rem;
+        font-size:1.5rem;
+    }
+    &__paragraph-1{
+        padding: 1rem;
+        font-size:1.5rem;
+        border-bottom: 1px solid $color-grey-light-1;
+        text-align: center;
+    }
+}
+&_container{
+    width:35rem;
+    background-color:$color-white;
+    height:auto;
+    padding:1rem;
+    border-radius: 2rem;
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
+}
 }
