@@ -5,46 +5,60 @@ import img from "../../img/pexels-pixabay-60597.jpg";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <ul className="navbar_left">
-        <li className="navbar_icons">
-          <i class="fab fa-facebook navbar_left_logo"></i>
+    <nav className="navbar_1">
+ 
+      <div className="navbar_1_left">
+      <ul >
+        <li className="navbar_1_icons">
+          <i class="fab fa-facebook navbar_1_left_logo"></i>
         </li>
-        <li className="navbar_icons">
+        <li className="navbar_1_icons">
           <input
             type="text"
-            className="navbar_left_searchbox"
+            className="navbar_1_left_searchbox"
             placeholder="Search"
           />
         </li>
       </ul>
-      <ul className="navbar_middle">
-        <li className="navbar_icons">
-          <i class="fas fa-home navbar_icon"></i>
+      </div>
+      <div className="navbar_1_middle">
+      <ul >
+        <li className="navbar_1_icon">
+          <i class="fas fa-home "></i>
         </li>
-        <li className="navbar_icons">
-          <i class="fas fa-users navbar_icon "></i>
+        <li className="navbar_1_icon">
+          <i class="fas fa-users "></i>
         </li>
       </ul>
-      <ul className="navbar_right">
-        <li className="navbar_icons">
-          <div className="navbar_btn">
+      </div>
+      <div className="navbar_1_right">
+      <ul className="navbar_1_right_right">
+        <li>
+          <div className="navbar_1_btn">
             <Link to="/profile">
-              <img src={img} alt="Profile" className="navbar__profilepicture" />
-              <h2 class="navbar_btn_name">pasang</h2>
+              <div className="navbar_1_gotoprofile">
+                <img src={img} alt="Profile" className="navbar_1__profilepicture" />
+                <h2 className="navbar_1_btn_name">pasang</h2>
+              </div>
+              
             </Link>
           </div>
         </li>
-        <li className="navbar_icons">
-          <i class="fab fa-facebook-messenger navbar_icon"></i>
+        <li className="navbar_1_icon">
+          <i className="fab fa-facebook-messenger "></i>
         </li>
-        <li className="navbar_icons">
-          <i class="fas fa-bell navbar_icon"></i>
+        <li className="navbar_1_icon">
+          <i className="fas fa-bell "></i>
         </li>
-        <li className="navbar_icons">
-          <i class="fas fa-chevron-circle-down navbar_icon"></i>
+        <li className="navbar_1_icon">
+          <i className="fas fa-chevron-circle-down"></i>
         </li>
       </ul>
+      </div>
+
+      
+      
+      
     </nav>
   );
 };

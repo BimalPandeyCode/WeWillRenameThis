@@ -13,8 +13,8 @@ const ProfilePage = () => {
       <div className="profile">
         <section className="profile_section">
           <div className="profile__cover">
-            <img src={img} alt="Cover" className="profile__cover" />
-            <div className="row">
+            <img src={img} alt="Cover" className="profile__cover-1" />
+            <div className="profile_row">
               <div className="col-1-of-2">
                 <div className="profile__profilepicture">
                   <img

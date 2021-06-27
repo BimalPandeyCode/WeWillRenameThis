@@ -10,6 +10,9 @@
       rgba($color-black, 0.2),
       rgba($color-white, 1) 50%
     );
+    display: flex;
+    flex-direction:column;
+   
   }
   &_information {
     width: 100%;
@@ -28,12 +31,25 @@
       margin-left: -5rem;
     }
   }
+  &_row{
+    display: flex;
+    justify-content: center;
+
+  }
 
   &__cover {
     border-radius: 1.2rem;
     width: 80%;
     height: 39rem;
     margin: 0 auto;
+  
+    &-1
+    {
+      border-radius: 1.2rem;
+      width: 100%;
+    height: 39rem;
+    }
+    
   }
   &__profilepicture {
     display: flex;
