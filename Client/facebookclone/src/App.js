@@ -34,7 +34,7 @@ const App = () => {
         </Route>
       </Switch>
     </Router>
-    // </Provider>
+    //  </Provider>
   );
 };
 
