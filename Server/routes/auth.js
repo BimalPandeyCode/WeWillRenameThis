@@ -18,12 +18,13 @@ router.post('/', [
             errors: errors.array()
         })
     }
-    // console.log(req);
+    
     
     try {
         let {email, password} = req.body;
          //See if user exists
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).select("+password");
+        // console.log(user);
         if(!user){
             return res.status(400).json({
                 msg: 'Invalid credentials'
@@ -31,6 +32,7 @@ router.post('/', [
         } 
 
         const isMatch = await bcrypt.compare(password, user.password);
+    
 
         if(!isMatch) {
             return res.status(400).json({

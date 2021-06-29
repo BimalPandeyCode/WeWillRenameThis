@@ -1,8 +1,7 @@
 .profile {
-  position: relative;
   height: 100%;
   width: 100%;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
   &_section {
     height: 55rem;
     width: 100%;
@@ -10,23 +9,28 @@
       rgba($color-black, 0.2),
       rgba($color-white, 1) 50%
     );
+    display: flex;
+    flex-direction:column;
+   
   }
   &_information {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    
     &_intro {
       width: 40rem;
-      margin-top: -210rem;
       position: sticky;
       -webkit-position: sticky;
       top: 0;
     }
-    &__posts {
-      margin-left: -5rem;
-    }
+    
+  }
+  &_row{
+    display: flex;
+    justify-content: center;
+
   }
 
   &__cover {
@@ -34,6 +38,14 @@
     width: 80%;
     height: 39rem;
     margin: 0 auto;
+  
+    &-1
+    {
+      border-radius: 1.2rem;
+      width: 100%;
+    height: 39rem;
+    }
+    
   }
   &__profilepicture {
     display: flex;
@@ -82,4 +94,31 @@
   &__button {
     margin-left: 10rem;
   }
+  &_intro{
+        
+    &__icon{
+        color:$color-grey-dark;
+        width:4px;
+        margin-right: 3rem;
+    }
+    &__paragraph{
+        padding: 1rem;
+        font-size:1.5rem;
+    }
+    &__paragraph-1{
+        padding: 1rem;
+        font-size:1.5rem;
+        border-bottom: 1px solid $color-grey-light-1;
+        text-align: center;
+    }
+}
+&_container{
+    width:35rem;
+    background-color:$color-white;
+    margin:1rem;
+    height:auto;
+    padding:1rem;
+    border-radius: 2rem;
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
+}
 }

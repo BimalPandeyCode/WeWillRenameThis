@@ -1,94 +1,92 @@
-.navbar{
-    width: 100%;
-    height:6rem;
+.navbar_1{
     background-color: $color-white;
-    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.2);
-    position:sticky;
+    height:5rem;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    position: sticky;
+    -webkit-position:sticky;
     top:0;
-    &_left{
-        position: absolute;
-        left:0rem;
-        
-        &_searchbox{
-            height:4rem;
-            margin-top:-3.5rem;
-            margin-left: 6rem;
-            display:flex;
-            -webkit-display:flex;
-            width:90%;
-            background-color:$color-grey-light-2;
-            border-radius:1rem;
-            outline: none;
-            border:none;
-            padding:1rem;
-        }
-        &_logo{
-            font-size: 3.5rem;
-            margin-top: 1rem;
-            color: $color-blue-1;
-            background-image: linear-gradient(to right,  $color-blue-1, $color-blue);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-     }
-    &_right{
-        float: right;
-
-    }
-    &_middle{
-        position: absolute;
-        left:50rem;
-    }
+    z-index:1;
     &_icons{
-        display: inline;
-        padding:1rem;
-        height:2rem;
-        width:2rem;
-        border-radius:50%;
-        &:hover{
-            cursor:pointer;
-            background-color: $color-grey-light-2;
-            
-            border-radius: 2rem;;
-        }
-       
+      color:$color-black;
+      font-size:2.5rem;
+      margin:0 .4rem; 
+      
+      
+    //   -webkit-background-clip: text;
+    // color: transparent;
+
+      
+      &:hover{
+          cursor:pointer;
+      } 
     }
     &_icon{
-        margin-top:2rem;
-        font-size:2rem;
-        color: $color-black;
-    
-       
-    }
-    &_btn{
-        display: inline-block;
-        border: none;
-        outline: none;
-        background-color:none;
-        &_name{
-            text-decoration: none;
-            color: black;
-            display: inline;
-        }
+        color:$color-black;
+        font-size:2.5rem;
+        margin:0 1.2rem; 
+        background-color:$color-grey-light-1;
+        width:4rem;
+        height:4rem;
+        border-radius:50%;
+        padding-left:0.7rem;
         &:hover{
             cursor:pointer;
-            background-color: $color-grey-light-2;
-            
-            border-radius: 2rem;;
+        } 
+    }
+    &_left{
+        width:33%;
+        margin-left:1rem;
+        &_logo{
+            background-image: linear-gradient(to right, $color-blue-1, $color-blue);
+            -webkit-background-clip: text;
+            color: transparent;
+
+        }
+        &_searchbox{
+            height:3rem;
+            border:none;
+            outline: none;
+            background-color:$color-grey-light-1;
+            border-radius: 3rem;
+            font-size:1.3rem;
+            padding:1rem;
         }
     }
-    &__profilepicture{
-            height:4rem;
-            width:4rem;
-            border-radius:50%;
-            background-size: cover;
-            display: flex;
-            position: absolute;
-            right:17.5rem;
-            top:1rem;
+    &_middle{
+        width:33%;
+        padding-left:1.5rem;
+        place-items: center;
+        
     }
-    
+    &_right{
+        width:33%;
+        &_right{
+            float:right;
+        }
+       
+    }
+    &__profilepicture{
+        height:4rem;
+        width:4rem;
+        border-radius: 50%;
+        margin-top:.6rem;
+    }
+    &_gotoprofile{
+        display:flex;
+        font-size:1.2rem;
+        color:$color-black;
+    }
+    &_btn_name{
+        margin-top:1rem;
+        text-decoration:none;
+    }
+
 }
 ul{
-    list-style: none;
+    list-style:none;
+    display:flex;
+    justify-content: flex-start;
+    
 }
