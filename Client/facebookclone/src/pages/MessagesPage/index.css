@@ -1,8 +1,8 @@
 .MessagesPageContainer {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.5fr 1fr 0.5fr;
-      grid-template-columns: 0.5fr 1fr 0.5fr;
+  -ms-grid-columns: 300px 1fr auto;
+      grid-template-columns: 300px 1fr auto;
       grid-template-areas: "NavBar NavBar NavBar" "searchBar  individualmessages friendsInfo" "friendList individualmessages friendsInfo";
   -ms-grid-rows: auto 125px 1fr;
       grid-template-rows: auto 125px 1fr;
@@ -188,9 +188,9 @@
   background-color: #242526;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 15px 0.001fr 1fr auto;
-      grid-template-columns: 15px 0.001fr 1fr auto;
-      grid-template-areas: ". topBarProfileImageContainer topBarPersonInforContainer .";
+  -ms-grid-columns: 15px 0.001fr 1fr auto 0.001fr;
+      grid-template-columns: 15px 0.001fr 1fr auto 0.001fr;
+      grid-template-areas: ". topBarProfileImageContainer topBarPersonInforContainer . topbarToggleFrindsInfo";
 }
 
 .MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__ImageContainer {
@@ -226,6 +226,19 @@
 .MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__personInfoContainer > p {
   margin: 0;
   font-size: 14px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__friendsInfoToggle {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: topbarToggleFrindsInfo;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__topBar .MessagesPageContainer__individualMessages__topBar__friendsInfoToggle .MessagesPageContainer__individualMessages__topBar__friendsInfoToggle__button {
+  margin: auto;
 }
 
 .MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__messagesContainer {
@@ -384,6 +397,7 @@
   height: 100%;
   color: white;
   background-color: black;
+  font-size: 20px;
 }
 
 .MessagesPageContainer .MessagesPageContainer__individualMessages .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__inputHolder .MessagesPageContainer__individualMessages__bottomBar__inputHolder__input > div > .MuiFilledInput-inputMultiline {
@@ -407,15 +421,85 @@
   -ms-grid-row-span: 2;
   -ms-grid-column: 3;
   grid-area: friendsInfo;
-  border-right: 1px solid #8f8f8f;
   overflow-y: scroll;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100vh;
+  width: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle {
+  display: -ms-grid;
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button {
+  opacity: 0%;
+  display: none;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__photoContainer .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__photoContainer__image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__nameContainer {
+  font-size: 18px;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__buttonHolder {
   width: 100%;
-  overflow: auto;
+  margin-bottom: 10px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.MessagesPageContainer .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__buttonHolder .MessagesPageContainer__friendsInfo__buttonHolder__button {
+  width: 80%;
+  height: 40px;
+  color: white;
+  text-transform: none;
+  font-size: 13px;
 }
 
 .MessagesPageContainer .MessagesPageContainer__friendsInfo::-webkit-scrollbar {
@@ -439,10 +523,10 @@
   width: 5px;
 }
 
-@media screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
   .MessagesPageContainer {
-    -ms-grid-columns: 0.001fr 1fr 0.5fr;
-        grid-template-columns: 0.001fr 1fr 0.5fr;
+    -ms-grid-columns: 0.001fr 1fr auto;
+        grid-template-columns: 0.001fr 1fr auto;
   }
   .MessagesPageContainer__friendList__IndividualFriends__ImageContainer > img {
     width: 10px;
@@ -460,22 +544,40 @@
   .MessagesPageContainer__individualMessages__bottomBar .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer__uploadImages {
     width: 100%;
   }
+  .MessagesPageContainer__friendsInfo {
+    width: 200px !important;
+  }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   .MessagesPageContainer {
-    -ms-grid-columns: 0.001fr 1fr 0px;
-        grid-template-columns: 0.001fr 1fr 0px;
-        grid-template-areas: "NavBar NavBar NavBar" "searchBar  individualmessages friendsInfo" "friendList individualmessages friendsInfo";
+    grid-column: auto;
+    -ms-grid-columns: 0.001fr auto auto !important;
+        grid-template-columns: 0.001fr auto auto !important;
   }
-  .MessagesPageContainer__friendList__IndividualFriends {
-    -ms-grid-columns: 10px;
-        grid-template-columns: 10px;
-        grid-template-areas: "profileImageContainer";
+  .MessagesPageContainer__friendsInfo {
+    width: 100% !important;
   }
-  .MessagesPageContainer__friendList__IndividualFriends__ImageContainer__image {
-    width: 10px;
-    height: 10px;
+  .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar {
+    position: relative;
+    width: auto;
+  }
+  .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    opacity: 100% !important;
+  }
+  .MessagesPageContainer__friendsInfo .MessagesPageContainer__friendsInfo__topbar .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button__Icon {
+    opacity: 100%;
   }
 }
 /*# sourceMappingURL=index.css.map */

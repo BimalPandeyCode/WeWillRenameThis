@@ -93,16 +93,93 @@ $navbar-media-queries-width: 700px;
   position: absolute;
   top: 58px;
   min-width: 300px;
-  //   width: 1fr;
   max-width: 350px;
   transform: translate(-45%);
   border: 1px solid lighten($color: #242526, $amount: 50%);
   border-radius: 5px;
   padding: 5px;
-  overflow: hidden;
+
   background-color: #242526;
   display: grid;
   place-items: center;
+  $heightoftotal: 100vh;
+  $navbarHeight: 58px;
+  height: auto !important;
+  max-height: calc(#{$heightoftotal} - #{$navbarHeight});
+  display: -webkit-flex;
+  display: flex;
+  width: 300px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+
+  // &::after {
+  //   display: table;
+  //   content: "";
+  //   clear: both;
+  // }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+
+    background-color: rgba(255, 255, 255, 0);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: black;
+    width: 5px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 5px;
+      background-color: rgb(105, 105, 105);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: black;
+      width: 5px;
+    }
+  }
+
+  .NotificationDropDown {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    .NotificationDropDown__topbar {
+      height: auto;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .NotificationDropDown__eachNotification {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(60px, 70px) 1fr;
+      grid-template-areas: "eachNotiImageContainer notificationText";
+      border-radius: 5px;
+      margin-bottom: 5px;
+      &:hover {
+        background-color: lighten($color: #242526, $amount: 20%);
+      }
+      .NotificationDropDown__eachNotification__imageContainer {
+        grid-area: eachNotiImageContainer;
+        display: grid;
+        place-items: center;
+        .NotificationDropDown__eachNotification__imageContainer__image {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+      }
+      .NotificationDropDown__eachNotification__notificationText {
+        grid-area: notificationText;
+        & > p {
+          font-size: 14px;
+        }
+        & > span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
   .Dropdown__buttonHolder {
     width: 95%;
     display: flex;

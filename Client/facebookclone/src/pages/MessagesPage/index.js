@@ -1,11 +1,35 @@
 import "./index.css";
 import SearchInput from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import React, { useEffect } from "react";
+import IconButton from "@material-ui/core/IconButton";
+import React, { useEffect, useState } from "react";
 
 import Navbar from "../../Components/Navbar/Navbar";
 
 const MessagesPage = () => {
+  const [showFriendsInfo, setShowFriendsInfo] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  function debounce(fn, ms) {
+    let timer;
+    return (_) => {
+      clearTimeout(timer);
+      timer = setTimeout((_) => {
+        timer = null;
+        fn.apply(this, arguments);
+      }, ms);
+    };
+  }
+  useEffect(() => {
+    // console.log(width);
+    const debouncedHandleResize = debounce(function handleResize() {
+      setWidth(window.innerWidth);
+    }, 1000);
+    window.addEventListener("resize", debouncedHandleResize);
+
+    return (_) => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  });
   return (
     <div className="MessagesPageContainer">
       <div className="navbarcomponent">
@@ -13,8 +37,28 @@ const MessagesPage = () => {
       </div>
       <SideFriendsList />
       <SearchFriends />
-      <IndividualMessages />
-      <FriendsInfo />
+      {width < 550 ? (
+        <></>
+      ) : (
+        <IndividualMessages
+          showFriendsInfo={showFriendsInfo}
+          setShowFriendsInfo={setShowFriendsInfo}
+        />
+      )}
+
+      {showFriendsInfo ? (
+        <FriendsInfo
+          showFriendsInfo={showFriendsInfo}
+          setShowFriendsInfo={setShowFriendsInfo}
+        />
+      ) : width <= 550 ? (
+        <IndividualMessages
+          showFriendsInfo={showFriendsInfo}
+          setShowFriendsInfo={setShowFriendsInfo}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
@@ -80,7 +124,7 @@ const SideFriendsList = () => {
   );
 };
 
-const IndividualMessages = () => {
+const IndividualMessages = ({ showFriendsInfo, setShowFriendsInfo }) => {
   useEffect(() => {
     let element = document.getElementById(
       "MessagesPageContainer__individualMessages__messagesContainer"
@@ -133,6 +177,16 @@ const IndividualMessages = () => {
           <p>Person Name</p>
           <p>Active now</p>
         </div>
+        <div className="MessagesPageContainer__individualMessages__topBar__friendsInfoToggle">
+          <IconButton
+            type="button"
+            // variant="contained"
+            className="MessagesPageContainer__individualMessages__topBar__friendsInfoToggle__button"
+            onClick={() => setShowFriendsInfo(!showFriendsInfo)}
+          >
+            <i className="fas fa-info-circle fa-2x"></i>
+          </IconButton>
+        </div>
       </div>
       <div
         id="MessagesPageContainer__individualMessages__messagesContainer"
@@ -179,7 +233,6 @@ const IndividualMessages = () => {
         <div className="MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer">
           <Button
             variant="contained"
-            // endIcon={<i className="fas fa-search" />}
             className="MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer__button"
           >
             <i className="fas fa-paper-plane fa-2x"></i>
@@ -189,7 +242,60 @@ const IndividualMessages = () => {
     </div>
   );
 };
-const FriendsInfo = () => {
-  return <div className="MessagesPageContainer__friendsInfo">Friends Info</div>;
+const FriendsInfo = ({ showFriendsInfo, setShowFriendsInfo }) => {
+  return (
+    <div className="MessagesPageContainer__friendsInfo">
+      <div className="MessagesPageContainer__friendsInfo__topbar">
+        <div className="MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle">
+          <IconButton
+            type="button"
+            className="MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button"
+            onClick={() => setShowFriendsInfo(!showFriendsInfo)}
+          >
+            <i className="fas fa-arrow-left fa-2x MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button__Icon"></i>
+          </IconButton>
+        </div>
+        <div className="MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv">
+          <div className="MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__photoContainer">
+            <img
+              className="MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__photoContainer__image"
+              src="https://scontent.fktm6-1.fna.fbcdn.net/v/t1.6435-1/c17.0.100.100a/p100x100/122283142_689463975284897_6192283090834406267_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=7206a8&_nc_ohc=goY93jDts0YAX-xTF7Q&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fktm6-1.fna&tp=27&oh=bfa92c8ed539effdd621db70c1ce2f13&oe=60DC3E7E"
+              alt=""
+            />
+          </div>
+          <div className="MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__nameContainer">
+            Firstname Lastname
+          </div>
+        </div>
+      </div>
+      <div className="MessagesPageContainer__friendsInfo__buttonHolder">
+        <Button
+          variant="text"
+          className="MessagesPageContainer__friendsInfo__buttonHolder__button"
+          endIcon={<i className="fa fa-angle-down" aria-hidden="true"></i>}
+        >
+          Block User
+        </Button>
+      </div>
+      <div className="MessagesPageContainer__friendsInfo__buttonHolder">
+        <Button
+          variant="text"
+          className="MessagesPageContainer__friendsInfo__buttonHolder__button"
+          endIcon={<i className="fa fa-angle-down" aria-hidden="true"></i>}
+        >
+          Unfriend User
+        </Button>
+      </div>
+      <div className="MessagesPageContainer__friendsInfo__buttonHolder">
+        <Button
+          variant="text"
+          className="MessagesPageContainer__friendsInfo__buttonHolder__button"
+          endIcon={<i className="fa fa-angle-down" aria-hidden="true"></i>}
+        >
+          Report User
+        </Button>
+      </div>
+    </div>
+  );
 };
 export default MessagesPage;

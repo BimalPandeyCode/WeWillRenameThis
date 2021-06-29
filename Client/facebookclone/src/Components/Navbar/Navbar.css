@@ -136,11 +136,103 @@
   border: 1px solid #a2a5a7;
   border-radius: 5px;
   padding: 5px;
-  overflow: hidden;
   background-color: #242526;
   display: -ms-grid;
   display: grid;
   place-items: center;
+  height: auto !important;
+  max-height: calc(100vh - 58px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 300px;
+  overflow-y: auto;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Dropdown::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.Dropdown::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 5px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.Dropdown:hover::-webkit-scrollbar {
+  width: 5px;
+  background-color: dimgray;
+}
+
+.Dropdown:hover::-webkit-scrollbar-thumb {
+  background-color: black;
+  width: 5px;
+}
+
+.Dropdown .NotificationDropDown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__topbar {
+  height: auto;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__eachNotification {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(60px, 70px) 1fr;
+      grid-template-columns: minmax(60px, 70px) 1fr;
+      grid-template-areas: "eachNotiImageContainer notificationText";
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__eachNotification:hover {
+  background-color: #56585a;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__eachNotification .NotificationDropDown__eachNotification__imageContainer {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: eachNotiImageContainer;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__eachNotification .NotificationDropDown__eachNotification__imageContainer .NotificationDropDown__eachNotification__imageContainer__image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__eachNotification .NotificationDropDown__eachNotification__notificationText {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: notificationText;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__eachNotification .NotificationDropDown__eachNotification__notificationText > p {
+  font-size: 14px;
+}
+
+.Dropdown .NotificationDropDown .NotificationDropDown__eachNotification .NotificationDropDown__eachNotification__notificationText > span {
+  font-size: 12px;
 }
 
 .Dropdown .Dropdown__buttonHolder {
