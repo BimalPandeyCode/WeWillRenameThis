@@ -1,10 +1,19 @@
 import "../../css/style.css";
 
 import React, { useState } from "react";
-import axios from "axios";
+
+import {register} from '../../redux/api/authapi.js';
+import { signinSuccess, signinFail } from '../../redux/reducers/auth.js';
+import { useDispatch } from 'react-redux'; 
+
+// import {loadUser} from '../../redux/reducers/auth.js';
+
+ 
 
 
     const SignInPage = () => {
+        // let reduxStoreNumber = useSelector((state) => state.authReducers); //! this reduxNumber variable stores the redux state
+       const dispatch= useDispatch();
         const [formData, setFormData] = useState({ 
             firstname:"",
             lastname:"",
@@ -19,32 +28,34 @@ import axios from "axios";
             email,
             password,
             date,
+            gender
             
         } = formData;
         const onChange = (e) =>{
             setFormData({...formData, [e.target.name]:e.target.value});
         }
         const onSubmit = async e => {
+           
             try {
                 e.preventDefault();
-                const config = {
-                    headers:{
-                        "Content-Type": "application/json"
-                    }
-                }
-                const body= JSON.stringify({
+                
+                const success = await register({
                     firstname,
                     lastname,
                     email,
                     password,
-                    date
-                });
-                console.log(body);
-                const res = await axios.post('http://localhost:4000/api/user', body, config);
-                console.log(res.data);
+                    date,
+                    gender});
+                
+                if(success === true){
+                    dispatch(signinSuccess());
+                } else{
+                    dispatch(signinFail("dummy"));
+                }
              
             } catch (err) {
-                console.error(err.response.data);
+                console.error(err);
+                dispatch(signinFail());
             }
         }
       
@@ -96,13 +107,13 @@ import axios from "axios";
                   />
                   <p className="signup__paragraph">Gender:</p>
                   <div className="signup__inputs__gender">
-                      Female  <input type="radio"  className="signup__inputs__gender__checkbox" name="gender" value="female" onChange={e => onChange(e)}/>
+                      Female  <input type="radio"  className="signup__inputs__gender__checkbox" name="gender" value="female" onClick={e => onChange(e)}/>
                   </div>
                   <div className="signup__inputs__gender">
-                      Male  <input type="radio"  className="signup__inputs__gender__checkbox" name="gender" value="male" onChange={e => onChange(e)}/>
+                      Male  <input type="radio"  className="signup__inputs__gender__checkbox" name="gender" value="male" onClick={e => onChange(e)}/>
                   </div>
                   <div className="signup__inputs__gender">
-                      custom  <input type="radio" className="signup__inputs__gender__checkbox" name="gender" value="custom" onChange={e => onChange(e)}/>
+                      custom  <input type="radio" className="signup__inputs__gender__checkbox" name="gender" value="custom" onClick={e => onChange(e)}/>
                   </div>
                
                  <input type="submit" className="btn btn-anchorgreen" value="Register" /> 

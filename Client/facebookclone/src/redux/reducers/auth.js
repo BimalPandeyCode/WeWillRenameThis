@@ -1,13 +1,90 @@
-// import { CREATE_POST, UPDATE_POST, DELETE_POST } from './postConstants'
+import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios';
+import setAuthToken from '../../pages/utilities/setAuthToken.js';
 
-// const initialState = []
 
-// export default function postsReducer(state = initialState, action) {
-//   switch (action.type) {
-//     case CREATE_POST: {
-//       // omit implementation
+
+// // First, create the thunk
+// export const fetchUserById = createAsyncThunk(
+//   'users/fetchByIdStatus',
+//   async (thunkAPI) => {
+//     if(localStorage.token){
+//       setAuthToken(localStorage.token);
 //     }
-//     default:
-//       return state
+//     try {
+//         const res = axios.get('http://localhost:4000/api/auth');
+//         if(res.status === 200){
+//           return res.data;
+//         }   
+//   }
+//   catch(err){
+//     console.log(err.message);
 //   }
 // }
+// )
+
+export const signinSlice = createSlice({
+  name: "authentication",
+  initialState: {
+    token: localStorage.getItem('token'),
+    isAuthenticated: null,
+    isLoading: true,
+    error:'',
+    user: null,
+    
+  },
+  reducers: {
+    signinPending : (state) =>{
+        state.isLoading = true;
+    },
+    signinSuccess: (state) =>{
+        state.isLoading = false;
+        state.isAuthenticated = true;
+        state.error ="";
+    },
+    signinFail: (state, {payload}) => {
+        state.isLoading = false;
+        state.error = payload;
+    },
+    loginSuccess: (state) =>{
+      state.isLoading = false;
+      state.isAuthenticated = true;
+      state.error ="";
+  },
+  loginFail: (state, {payload}) => {
+      state.isLoading = false;
+      state.error = payload;
+  },
+    UserLoaded: (state, {payload}) => {
+      state.isLoading = false;
+      state.isAuthenticated =true;
+      state.user = payload;
+
+    }
+  }
+});
+
+
+
+const {reducer , actions} =signinSlice;
+export const {signinPending, signinSuccess, signinFail, loginSuccess, UserLoaded,loginFail} =actions;
+
+export const fetchUserById = () => async (dispatch) => {
+  if(localStorage.token){
+    setAuthToken(localStorage.token);
+  }
+ try{
+  const res = await axios.get('http://localhost:4000/api/auth');
+  console.log(res);
+  if(res.status === 200){
+    dispatch(UserLoaded(res.data));
+  } 
+
+  
+ }
+ catch(err){
+  console.log(err.message);
+}
+}
+
+export default reducer;
