@@ -25,7 +25,6 @@ router.post('/', [
             errors: errors.array()
         })
     }
-    console.log(req.body);
     try {
 
         let {
@@ -42,7 +41,7 @@ router.post('/', [
         if (user) {
             return res.status(400).json({
                 errors: [{
-                    msg: 'User already exists 1234'
+                    msg: 'User already exists '
                 }]
             })
         }

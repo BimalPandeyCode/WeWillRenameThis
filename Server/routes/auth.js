@@ -4,6 +4,23 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { check, validationResult } from 'express-validator';
 import User from '../model/User.js';
+import auth from "../middleware/auth.js";
+
+// @route   GET api/auth
+// @desc    Check the token and return  user 
+// @access  Private
+router.get('/', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+        res.json({user});
+     } catch (error) {
+         console.error(error.message);
+         res.status(500).send('Server error')
+     }
+   
+
+})
+
 
 // @route   POST api/auth
 // @desc    login user 

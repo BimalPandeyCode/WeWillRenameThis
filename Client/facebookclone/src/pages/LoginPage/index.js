@@ -2,10 +2,14 @@ import "../../css/style.css";
 
 import React, {useState} from "react";
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+
+import { login } from '../../redux/api/authapi.js';
+import { loginSuccess, loginFail, fetchUserById } from '../../redux/reducers/auth.js';
+import { useDispatch } from 'react-redux'; 
 
 
     const LoginPage = () => {
+        const dispatch = useDispatch();
         const [formData, setFormData] = useState ({
             email:"",
             password:""
@@ -21,19 +25,17 @@ import axios from 'axios';
         const onSubmit = async e => {
             try {
                 e.preventDefault();
-                const config = {
-                    headers:{
-                        "Content-Type": "application/json"
-                    }
+                const success = await login({email, password});
+                console.log(success);
+                if(success === true){
+                    dispatch(loginSuccess());
+                    dispatch(fetchUserById());
+                } else{
+                    dispatch(loginFail());
                 }
-                const body= JSON.stringify({
-                    email,
-                    password
-                });
-                const res = await axios.post('http://localhost:4000/api/auth', body, config);
-                console.log(res.data);
             } catch (err) {
-                console.error(err.response.data);
+                console.error(err.message);
+                dispatch(loginFail());
                 
             }
         }

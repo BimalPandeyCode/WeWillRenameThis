@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { Provider } from "react-redux";
@@ -12,7 +12,15 @@ import LoginPage from "./pages/LoginPage/index";
 import ProfilePage from "./pages/Profile/index.js";
 //!
 
+//redux components
+import { useSelector, useDispatch } from "react-redux";
+import {  fetchUserById  } from "../src/redux/reducers/auth.js";
+
 const App = () => {
+  const dispatch = useDispatch(); // !this is the dispatch function
+  useEffect(() => {
+    dispatch(fetchUserById());
+  }, []);
   return (
     <Provider store={store}>
       <Router>
@@ -37,5 +45,7 @@ const App = () => {
     </Provider>
   );
 };
+
+
 
 export default App;
