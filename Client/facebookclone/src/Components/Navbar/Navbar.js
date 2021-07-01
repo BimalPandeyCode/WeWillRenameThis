@@ -74,7 +74,7 @@ const Navbar = () => {
               component="label"
               className="navbar__searchbar__inputHolder__searchButtonContainer__button"
               onClick={() => {
-                dispatch(increamentByValue(5)); // ! redux increameantByalue function is called
+                dispatch(increamentByValue(1)); // ! redux increameantByalue function is called
               }}
             >
               <i className="fas fa-search fa-2x"></i>

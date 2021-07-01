@@ -35,10 +35,8 @@ export const login = async({ email, password }) =>{
  const body = JSON.stringify({  email, password})
  try{
      const res = await axios.post('/api/auth', body, config);
-     console.log(res)
          if(res.status=== 200){
              localStorage.setItem('token', res.data.token);
-             console.log("hello")
              return true;
          }
      } catch (err) {

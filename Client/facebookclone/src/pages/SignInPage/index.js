@@ -1,56 +1,19 @@
 import "../../css/style.css";
 
 import React, { useState } from "react";
+import {useHistory} from 'react-router-dom';
 
 import { register } from "../../redux/api/authapi.js";
-import { signinSuccess, signinFail } from "../../redux/reducers/auth.js";
+import { signinSuccess, signinFail, fetchUserById } from "../../redux/reducers/auth.js";
 import { useDispatch } from "react-redux";
-import axios from "axios";
+
 // import {loadUser} from '../../redux/reducers/auth.js';
 
-const SignInPage = () => {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    date: "",
-    gender: "",
-  });
-  const { firstname, lastname, email, password, date } = formData;
-  const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const onSubmit = async (e) => {
-    try {
-      e.preventDefault();
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      const body = JSON.stringify({
-        firstname,
-        lastname,
-        email,
-        password,
-        date,
-      });
-      console.log(body);
-      const res = await axios.post(
-        "http://localhost:4000/api/user",
-        body,
-        config
-      );
-      console.log(res.data);
-    } catch (err) {
-      console.error(err.response.data);
-    }
-  };
 
   const SignInPage = () => {
     // let reduxStoreNumber = useSelector((state) => state.authReducers); //! this reduxNumber variable stores the redux state
     const dispatch = useDispatch();
+    const history = useHistory();
     const [formData, setFormData] = useState({
       firstname: "",
       lastname: "",
@@ -76,16 +39,18 @@ const SignInPage = () => {
           gender,
         });
 
-        if (success === true) {
+        if (success) {
           dispatch(signinSuccess());
-        } else {
-          dispatch(signinFail("dummy"));
+          // dispatch(fetchUserById());
+          console.log('hello world')
+          history.push('/home');
+        }else {
+            dispatch(signinFail());
         }
-      } catch (err) {
-        console.error(err);
-        dispatch(signinFail());
-      }
-    };
+    } catch(e){
+      console.log(e.message);
+    }
+  };
 
     return (
       <div className="signup">
@@ -173,5 +138,5 @@ const SignInPage = () => {
       </div>
     );
   };
-};
+
 export default SignInPage;

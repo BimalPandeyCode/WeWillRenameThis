@@ -6,8 +6,12 @@ import Post from "./post.js";
 import ProfileIntro from "./ProfileIntro.js";
 import Photos from "./Photos.js";
 import Friends from "./friends.js";
+import {useSelector} from 'react-redux';
+
 
 const ProfilePage = () => {
+  
+  const {firstname, lastname} = useSelector((state) => state.signin.user)
   return (
     <>
       <div className="profile">
@@ -23,7 +27,7 @@ const ProfilePage = () => {
                     className="profile__profilepicture-1"
                   />
                   <div className="profile__name">
-                    <h1 className="profile__name__heading">Pasang Sherpa</h1>
+                    <h1 className="profile__name__heading">{firstname + " " + lastname}</h1>
                     <p className="profile__name__paragraph">1.8k friends</p>
                   </div>
                 </div>

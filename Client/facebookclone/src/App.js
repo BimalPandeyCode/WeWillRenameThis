@@ -12,33 +12,46 @@ import LoginPage from "./pages/LoginPage/index";
 import ProfilePage from "./pages/Profile/index.js";
 //!
 
+//Private Routing
+import PrivateRoute from '../src/pages/utilities/PrivateRoute.js';
+
 //redux components
-import { useSelector, useDispatch } from "react-redux";
+
 import {  fetchUserById  } from "../src/redux/reducers/auth.js";
 
+//setAuthToken
+import setAuthToken from '../src/pages/utilities/setAuthToken.js';
+if(localStorage.token){
+  setAuthToken(localStorage.token);
+}
+
+
+
 const App = () => {
-  const dispatch = useDispatch(); // !this is the dispatch function
+  
   useEffect(() => {
-    dispatch(fetchUserById());
-  }, []);
+    store.dispatch(fetchUserById());
+  }, [store]);
+  
+  
   return (
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/home">
-            <HomePage />
+          <PrivateRoute exact path="/home" component={HomePage}>
+            
+          </PrivateRoute>
+          <Route exact path="/signin" component ={SignInPage}>
+            
           </Route>
-          <Route exact path="/signin">
-            <SignInPage />
+          <PrivateRoute exact path="/profile" component={ProfilePage}>
+            
+          </PrivateRoute>
+          <Route exact path="/login" component={LoginPage}>
+
           </Route>
-          <Route exact path="/profile">
-            <ProfilePage />
-          </Route>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="/messages">
-            <Messagespage />
+          <Route path="/messages" component={Messagespage}>
+      
           </Route>
         </Switch>
       </Router>

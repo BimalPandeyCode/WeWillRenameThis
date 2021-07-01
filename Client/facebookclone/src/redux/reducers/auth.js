@@ -58,7 +58,7 @@ export const signinSlice = createSlice({
     UserLoaded: (state, {payload}) => {
       state.isLoading = false;
       state.isAuthenticated =true;
-      state.user = payload;
+      state.user = payload.user;
 
     }
   }
@@ -70,12 +70,13 @@ const {reducer , actions} =signinSlice;
 export const {signinPending, signinSuccess, signinFail, loginSuccess, UserLoaded,loginFail} =actions;
 
 export const fetchUserById = () => async (dispatch) => {
+  
   if(localStorage.token){
     setAuthToken(localStorage.token);
   }
  try{
   const res = await axios.get('http://localhost:4000/api/auth');
-  console.log(res);
+  
   if(res.status === 200){
     dispatch(UserLoaded(res.data));
   } 

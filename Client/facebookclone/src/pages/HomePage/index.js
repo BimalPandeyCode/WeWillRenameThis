@@ -5,7 +5,9 @@ import Navbar from "../navbar/index.js";
 
 
 
+
 const HomePage = () => {
+ 
   return (
     <>
     <Navbar />

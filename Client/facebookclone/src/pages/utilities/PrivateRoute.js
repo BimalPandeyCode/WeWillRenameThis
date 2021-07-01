@@ -1,14 +1,21 @@
 import React from 'react';
-import { Route, Redirect} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux'
+import { Route , Redirect } from 'react-router-dom';
 
-const PrivateRoute = () => {
+import { useSelector } from "react-redux";
+
+
+
+const PrivateRoute = ({ component: Component, ...rest}) =>  {
+    const auth = useSelector((state) => state.signin);
+  
     return (
-        <div>
-            
-        </div>
-    )
+        <Route { ...rest } render={props => (
+            auth.token
+              ? <Component {...props} />
+              : <Redirect to="/login" />
+          )}/>
+       )
 }
 
-export default PrivateRoute
+
+export default PrivateRoute;

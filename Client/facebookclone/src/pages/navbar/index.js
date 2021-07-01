@@ -2,15 +2,18 @@ import "../../css/style.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import img from "../../img/pexels-pixabay-60597.jpg";
+import {useSelector} from 'react-redux';
+
 
 const Navbar = () => {
+  const {firstname} = useSelector((state) => state.signin.user);
   return (
     <nav className="navbar_1">
  
       <div className="navbar_1_left">
       <ul >
         <li className="navbar_1_icons">
-          <i class="fab fa-facebook navbar_1_left_logo"></i>
+          <i className="fab fa-facebook navbar_1_left_logo"></i>
         </li>
         <li className="navbar_1_icons">
           <input
@@ -24,10 +27,10 @@ const Navbar = () => {
       <div className="navbar_1_middle">
       <ul >
         <li className="navbar_1_icon">
-          <i class="fas fa-home "></i>
+          <i className="fas fa-home "></i>
         </li>
         <li className="navbar_1_icon">
-          <i class="fas fa-users "></i>
+          <i className="fas fa-users "></i>
         </li>
       </ul>
       </div>
@@ -38,7 +41,7 @@ const Navbar = () => {
             <Link to="/profile">
               <div className="navbar_1_gotoprofile">
                 <img src={img} alt="Profile" className="navbar_1__profilepicture" />
-                <h2 className="navbar_1_btn_name">pasang</h2>
+                <h2 className="navbar_1_btn_name">{firstname}</h2>
               </div>
               
             </Link>
