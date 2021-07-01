@@ -130,16 +130,12 @@
   position: absolute;
   top: 58px;
   min-width: 300px;
-  max-width: 350px;
   -webkit-transform: translate(-45%);
           transform: translate(-45%);
   border: 1px solid #a2a5a7;
   border-radius: 5px;
   padding: 5px;
   background-color: #242526;
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
   height: auto !important;
   max-height: calc(100vh - 58px);
   display: -webkit-box;
@@ -147,10 +143,6 @@
   display: flex;
   width: 300px;
   overflow-y: auto;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .Dropdown::-webkit-scrollbar {
@@ -182,7 +174,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 90%;
+  width: 95%;
+  margin: auto;
 }
 
 .Dropdown .NotificationDropDown .NotificationDropDown__topbar {
@@ -236,6 +229,7 @@
 }
 
 .Dropdown .Dropdown__buttonHolder {
+  margin: auto;
   width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;

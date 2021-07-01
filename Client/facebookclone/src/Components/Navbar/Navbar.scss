@@ -1,5 +1,6 @@
 // ! Variables
 $navbar-media-queries-width: 700px;
+
 .navbar {
   background-color: #242526;
   z-index: 2;
@@ -9,6 +10,7 @@ $navbar-media-queries-width: 700px;
   grid-template-columns: 60px 1fr 0.001fr 1fr;
   grid-template-areas: "navBarTitle navbarSearchBar navbarButtonsHolder navbarPersonalInfo";
   border-bottom: 2px solid black;
+
   .navbar__title {
     grid-area: navBarTitle;
     display: grid;
@@ -20,16 +22,19 @@ $navbar-media-queries-width: 700px;
       border-radius: 50%;
     }
   }
+
   .navbar__searchbar {
     grid-area: navbarSearchBar;
     display: grid;
     align-items: center;
+
     .navbar__searchbar__inputHolder {
       width: 100%;
       height: 70%;
       display: grid;
       grid-template-columns: 1fr auto;
       grid-template-areas: "inputHolderInput inputHolderSearchButtonContainer";
+
       .navbar__searchbar__inputHolder__input {
         grid-area: inputHolderInput;
         height: 100%;
@@ -38,23 +43,28 @@ $navbar-media-queries-width: 700px;
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
       }
+
       .navbar__searchbar__inputHolder__searchButtonContainer {
         grid-area: inputHolderSearchButtonContainer;
         display: grid;
         place-items: center;
+
         .navbar__searchbar__inputHolder__searchButtonContainer__button {
           height: 100%;
         }
       }
     }
   }
+
   .navbar__buttonsHolder {
     grid-area: navbarButtonsHolder;
     display: grid;
     place-items: center;
+
     .navbar__buttonsHolder__div {
       width: 100%;
       height: 70%;
+
       .navbar__buttonsHolder__div__button {
         margin-left: 10px;
         height: 100%;
@@ -62,22 +72,27 @@ $navbar-media-queries-width: 700px;
       }
     }
   }
+
   .navbar__personalInfoHolder {
     grid-area: navbarPersonalInfo;
     display: grid;
     place-items: end;
     align-items: center;
+
     .navbar__personalInfoHolder__buttonHolder {
       width: auto;
       height: 70%;
+
       .navbar__personalInfoHolder__buttonHolder__button {
         height: 100%;
         margin-left: 2px;
         padding: 0px;
-        & > .MuiButton-label {
+
+        &>.MuiButton-label {
           padding: 0px;
           margin: 0px;
         }
+
         .navbar__personalInfoHolder__buttonHolder__button__image {
           width: 30px;
           height: 30px;
@@ -93,15 +108,12 @@ $navbar-media-queries-width: 700px;
   position: absolute;
   top: 58px;
   min-width: 300px;
-  max-width: 350px;
   transform: translate(-45%);
   border: 1px solid lighten($color: #242526, $amount: 50%);
   border-radius: 5px;
   padding: 5px;
 
   background-color: #242526;
-  display: grid;
-  place-items: center;
   $heightoftotal: 100vh;
   $navbarHeight: 58px;
   height: auto !important;
@@ -110,30 +122,25 @@ $navbar-media-queries-width: 700px;
   display: flex;
   width: 300px;
   overflow-y: auto;
-  display: flex;
-  justify-content: center;
-
-  // &::after {
-  //   display: table;
-  //   content: "";
-  //   clear: both;
-  // }
 
   &::-webkit-scrollbar {
     width: 5px;
 
     background-color: rgba(255, 255, 255, 0);
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: black;
     width: 5px;
     background-color: rgba(255, 255, 255, 0);
   }
+
   &:hover {
     &::-webkit-scrollbar {
       width: 5px;
       background-color: rgb(105, 105, 105);
     }
+
     &::-webkit-scrollbar-thumb {
       background-color: black;
       width: 5px;
@@ -143,12 +150,15 @@ $navbar-media-queries-width: 700px;
   .NotificationDropDown {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
+    margin: auto;
+
     .NotificationDropDown__topbar {
       height: auto;
       font-size: 20px;
       font-weight: bold;
     }
+
     .NotificationDropDown__eachNotification {
       width: 100%;
       display: grid;
@@ -156,31 +166,39 @@ $navbar-media-queries-width: 700px;
       grid-template-areas: "eachNotiImageContainer notificationText";
       border-radius: 5px;
       margin-bottom: 5px;
+
       &:hover {
         background-color: lighten($color: #242526, $amount: 20%);
       }
+
       .NotificationDropDown__eachNotification__imageContainer {
         grid-area: eachNotiImageContainer;
         display: grid;
         place-items: center;
+
         .NotificationDropDown__eachNotification__imageContainer__image {
           width: 60px;
           height: 60px;
           border-radius: 50%;
         }
       }
+
       .NotificationDropDown__eachNotification__notificationText {
         grid-area: notificationText;
-        & > p {
+
+        &>p {
           font-size: 14px;
         }
-        & > span {
+
+        &>span {
           font-size: 12px;
         }
       }
     }
   }
+
   .Dropdown__buttonHolder {
+    margin: auto;
     width: 95%;
     display: flex;
     flex-direction: column;
@@ -193,6 +211,7 @@ $navbar-media-queries-width: 700px;
       margin-top: 5px;
       margin-bottom: 5px;
       padding-left: 0;
+
       .Dropdown__buttonHolder__profilebutton__text {
         padding-right: auto;
         margin-right: auto;
@@ -200,16 +219,19 @@ $navbar-media-queries-width: 700px;
         text-decoration: none;
         text-transform: none;
       }
+
       .Dropdown__buttonHolder__profilebutton__imageContainer__image {
         height: 65px;
         width: 65px;
         border-radius: 50%;
         margin-right: auto;
       }
+
       &:hover {
         background-color: lighten($color: #242526, $amount: 50%);
       }
     }
+
     .Dropdown__buttonHolder__button {
       width: 100%;
       color: white;
@@ -218,6 +240,7 @@ $navbar-media-queries-width: 700px;
       margin-bottom: 5px;
       font-size: 14px;
       text-transform: none;
+
       &:hover {
         background-color: lighten($color: #242526, $amount: 50%);
       }
@@ -235,53 +258,65 @@ $navbar-media-queries-width: 700px;
     grid-template-areas:
       "navBarTitle  navbarButtonsHolder navbarPersonalInfo"
       "navbarSearchBar navbarSearchBar navbarSearchBar";
+
     .navbar__title {
       .navbar__title__logo {
         padding: 0px;
         margin: 0px;
       }
     }
+
     .navbar__searchbar {
       .navbar__searchbar__inputHolder {
         width: 90%;
         margin: auto;
+
         .navbar__searchbar__inputHolder__input {
           margin: 0px;
         }
+
         .navbar__searchbar__inputHolder__searchButtonContainer {
           grid-area: inputHolderSearchButtonContainer;
           display: grid;
           place-items: center;
+
           .navbar__searchbar__inputHolder__searchButtonContainer__button {
             height: 100%;
           }
         }
       }
     }
+
     .navbar__buttonsHolder {
       grid-area: navbarButtonsHolder;
       display: grid;
       place-items: center;
+
       .navbar__buttonsHolder__div {
         width: 100%;
         height: 70%;
+
         .navbar__buttonsHolder__div__button {
           margin-left: 10px;
           height: 100%;
         }
       }
     }
+
     .navbar__personalInfoHolder {
       grid-area: navbarPersonalInfo;
       display: grid;
       place-items: end;
       align-items: center;
+
       .navbar__personalInfoHolder__buttonHolder {
         width: auto;
         height: 70%;
+
         .navbar__personalInfoHolder__buttonHolder__button {
           height: 100%;
           margin-left: 2px;
+
           .navbar__personalInfoHolder__buttonHolder__button__image {
             width: 30px;
             height: 30px;

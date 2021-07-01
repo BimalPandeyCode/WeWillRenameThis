@@ -40,19 +40,30 @@
 
         display: grid;
         place-items: center;
+
         .MessagesPageContainer__searchBar__searchBarContainer__form__input {
           width: 90%;
 
-          & > .MuiInputBase-input {
+          &>label {
+            font-size: 14px;
+          }
+
+          &>div>input {
+            font-size: 14px;
+          }
+
+          &>.MuiInputBase-input {
             color: aliceblue;
           }
-          & > label {
+
+          &>label {
             color: aliceblue;
           }
         }
       }
     }
   }
+
   .MessagesPageContainer__friendList {
     grid-area: friendList;
     // border-left: 1px solid #8f8f8f;
@@ -68,6 +79,7 @@
     &:nth-child(1) {
       padding-top: 10px;
     }
+
     .MessagesPageContainer__friendList__IndividualFriends {
       display: grid;
       grid-template-columns: 0.5fr 1fr auto;
@@ -75,6 +87,7 @@
       height: 75px;
       margin-left: 8px;
       width: 100%;
+
       &:hover {
         background-color: lighten($color: #242526, $amount: 5%);
         border-radius: 8px;
@@ -96,13 +109,14 @@
       .MessagesPageContainer__friendList__IndividualFriends__InfoContainer {
         grid-area: messageInfoContainer;
 
-        & > p:nth-child(1) {
+        &>p:nth-child(1) {
           margin-top: 8px;
           margin-bottom: 5px;
           font-size: 16px;
           font-weight: bold;
         }
-        & > p {
+
+        &>p {
           font-size: 14px;
           margin: 0px;
         }
@@ -115,23 +129,27 @@
       border-radius: 8px;
       background-color: rgba(255, 255, 255, 0);
     }
+
     &::-webkit-scrollbar-thumb {
       background-color: black;
       width: 8px;
       background-color: rgba(255, 255, 255, 0);
       border-radius: 25px;
     }
+
     &:hover {
       &::-webkit-scrollbar {
         width: 8px;
         background-color: rgb(105, 105, 105);
       }
+
       &::-webkit-scrollbar-thumb {
         background-color: black;
         width: 8px;
       }
     }
   }
+
   .MessagesPageContainer__individualMessages {
     grid-area: individualmessages;
     border-left: 1px solid #8f8f8f;
@@ -162,30 +180,35 @@
         display: grid;
         place-items: center;
 
-        & > img {
+        &>img {
           height: 50px;
           width: 50px;
           border-radius: 50%;
         }
       }
+
       .MessagesPageContainer__individualMessages__topBar__personInfoContainer {
         grid-area: topBarPersonInforContainer;
         margin-left: 10px;
-        & > p:nth-child(1) {
+
+        &>p:nth-child(1) {
           margin-bottom: 0px;
           margin-top: 8px;
           font-weight: bold;
           font-size: 18px;
         }
-        & > p {
+
+        &>p {
           margin: 0;
           font-size: 14px;
         }
       }
+
       .MessagesPageContainer__individualMessages__topBar__friendsInfoToggle {
         grid-area: topbarToggleFrindsInfo;
         display: grid;
         place-items: center;
+
         .MessagesPageContainer__individualMessages__topBar__friendsInfoToggle__button {
           margin: auto;
         }
@@ -210,6 +233,7 @@
         grid-template-columns: 20% minmax(1ch, 80%);
         grid-template-areas: ". EachMessageSentTextContainer";
         margin-bottom: 10px;
+
         .MessagesPageContainer__individualMessages__messagesContainer__EachMessagesSent__textContainer {
           grid-area: EachMessageSentTextContainer;
           background-color: #1599db;
@@ -217,7 +241,7 @@
           margin-left: auto;
           width: fit-content;
 
-          & > p {
+          &>p {
             padding: 10px;
             margin: 0px;
             font-size: 14px;
@@ -231,12 +255,14 @@
         flex-direction: row;
         height: fit-content;
         margin-bottom: 10px;
+
         .MessagesPageContainer__individualMessages__messagesContainer__EachMessages__imageContainer {
           height: 100%;
           display: flex;
           justify-content: flex-end;
           align-items: flex-end;
-          & > img {
+
+          &>img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
@@ -249,7 +275,8 @@
           min-width: 1ch;
           background-color: #3e4042;
           border-radius: 20px;
-          & > p {
+
+          &>p {
             padding: 10px;
             margin: 0px;
             font-size: 14px;
@@ -262,16 +289,19 @@
 
         background-color: rgba(255, 255, 255, 0);
       }
+
       &::-webkit-scrollbar-thumb {
         background-color: black;
         width: 5px;
         background-color: rgba(255, 255, 255, 0);
       }
+
       &:hover {
         &::-webkit-scrollbar {
           width: 5px;
           background-color: rgb(105, 105, 105);
         }
+
         &::-webkit-scrollbar-thumb {
           background-color: black;
           width: 5px;
@@ -299,6 +329,7 @@
           height: 56px;
         }
       }
+
       .MessagesPageContainer__individualMessages__bottomBar__inputHolder {
         grid-area: bottomBarInputHolder;
 
@@ -308,14 +339,19 @@
           color: white;
           background-color: black;
           font-size: 20px;
-          & > div > .MuiFilledInput-inputMultiline {
+
+          &>.MuiFilledInput-multiline>textarea {
             color: aliceblue;
+            font-size: 22px;
           }
+
         }
       }
+
       .MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer {
         grid-area: bottomBarSendbutton;
         height: 100%;
+
         .MessagesPageContainer__individualMessages__bottomBar__sendButtonContainer__button {
           height: 56px;
           width: 100%;
@@ -323,6 +359,7 @@
       }
     }
   }
+
   .MessagesPageContainer__friendsInfo {
     grid-area: friendsInfo;
     overflow-y: scroll;
@@ -334,25 +371,30 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+
     .MessagesPageContainer__friendsInfo__topbar {
       display: flex;
       flex-direction: row;
       position: relative;
+
       .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle {
         display: grid;
         position: absolute;
         top: 0;
         left: 0;
+
         .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button {
           opacity: 0%;
           display: none;
         }
       }
+
       .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
         align-items: center;
+
         .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__photoContainer {
           .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__photoContainer__image {
             width: 100px;
@@ -360,6 +402,7 @@
             border-radius: 50%;
           }
         }
+
         .MessagesPageContainer__friendsInfo__topbar__nameAndPhotoDiv__nameContainer {
           font-size: 18px;
         }
@@ -371,6 +414,7 @@
       margin-bottom: 10px;
       display: grid;
       place-items: center;
+
       .MessagesPageContainer__friendsInfo__buttonHolder__button {
         width: 80%;
         height: 40px;
@@ -385,16 +429,19 @@
 
       background-color: rgba(255, 255, 255, 0);
     }
+
     &::-webkit-scrollbar-thumb {
       background-color: black;
       width: 5px;
       background-color: rgba(255, 255, 255, 0);
     }
+
     &:hover {
       &::-webkit-scrollbar {
         width: 5px;
         background-color: rgb(105, 105, 105);
       }
+
       &::-webkit-scrollbar-thumb {
         background-color: black;
         width: 5px;
@@ -407,26 +454,32 @@
   .MessagesPageContainer {
     grid-template-columns: 0.001fr 1fr auto;
   }
+
   .MessagesPageContainer__friendList__IndividualFriends__ImageContainer {
-    & > img {
+    &>img {
       width: 10px;
       height: 10px;
     }
   }
+
   .MessagesPageContainer__friendList__IndividualFriends__InfoContainer {
     width: 0;
     display: none;
     opacity: 0;
   }
+
   .MessagesPageContainer__individualMessages__bottomBar {
     grid-template-columns: 60px 1fr 60px;
+
     .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer {
+
       // width: 100%;
       .MessagesPageContainer__individualMessages__bottomBar__uploadImagesContainer__uploadImages {
         width: 100%;
       }
     }
   }
+
   .MessagesPageContainer__friendsInfo {
     width: 200px !important;
   }
@@ -444,20 +497,25 @@
     // grid-template-rows: auto 125px 1fr;er__individualMessages {
     // grid-area: friendsInfo2;
   }
+
   .MessagesPageContainer__friendsInfo {
     width: 100% !important;
+
     .MessagesPageContainer__friendsInfo__topbar {
       position: relative;
       width: auto;
+
       .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle {
         display: flex;
         position: absolute;
         top: 0;
         left: 0;
+
         .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button {
           display: flex !important;
           opacity: 100% !important;
         }
+
         .MessagesPageContainer__friendsInfo__topbar__friendsInfoToggle__Button__Icon {
           opacity: 100%;
         }
