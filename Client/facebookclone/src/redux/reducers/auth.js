@@ -1,6 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import setAuthToken from '../../pages/utilities/setAuthToken.js';
+
+
 
 
 
@@ -27,7 +29,7 @@ export const signinSlice = createSlice({
   name: "authentication",
   initialState: {
     token: localStorage.getItem('token'),
-    isAuthenticated: null,
+    isAuthenticated: false,
     isLoading: true,
     error:'',
     user: null,
@@ -49,7 +51,6 @@ export const signinSlice = createSlice({
     loginSuccess: (state) =>{
       state.isLoading = false;
       state.isAuthenticated = true;
-      state.error ="";
   },
   loginFail: (state, {payload}) => {
       state.isLoading = false;
@@ -87,5 +88,7 @@ export const fetchUserById = () => async (dispatch) => {
   console.log(err.message);
 }
 }
+
+
 
 export default reducer;

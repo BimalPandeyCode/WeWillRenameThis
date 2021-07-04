@@ -1,13 +1,17 @@
 import React from 'react';
 import img from '../../img/pexels-pixabay-60597.jpg';
+import {useSelector} from 'react-redux';
 
 const Post = () => {
+    const error = useSelector((state) => state.signin.user) 
+  if(error!== null){
+    const {firstname, lastname} = error
     return (
         <div className="post">
         {/* <!-- Profile picture of the post admin --> */}
         <img src={img} alt="img" className="post__profilepicture"/>
         <h4 className="profilename">
-            Dolma Sherpa
+            {firstname+ " "+lastname} 
         </h4>
         <p className="post__time">
          
@@ -46,6 +50,10 @@ const Post = () => {
         </section>
     </div>
     )
+}
+else{
+    return <> </>
+}
 }
 
 export default Post;

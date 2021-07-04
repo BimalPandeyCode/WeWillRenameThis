@@ -1,0 +1,25 @@
+.contact{
+    height:5rem;
+    width:100%;
+    display:flex;
+    background-color:none;
+    align-items:center;
+    border-radius:5px;
+    padding-left:1rem;
+    
+    &__image{
+        height:4rem;
+        width:4rem;
+        border-radius: 50%;
+        box-shadow: 0 0.5rem 0.5rem rgba($color-grey-light-1, 0.2);
+    }
+    &__name{
+        margin-left: 1rem;
+        font-size:1.6rem;
+        font-weight: bold;
+    }
+    &:hover{
+        background-color: $color-grey-light-1;
+
+    }
+}

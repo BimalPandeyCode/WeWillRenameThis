@@ -1,14 +1,25 @@
 import "../../css/style.css";
 
-import React, {useState} from "react";
-import {Link, useHistory} from 'react-router-dom';
+import React, {useState, useEffect} from "react";
+import {Link, useHistory, Redirect} from 'react-router-dom';
 
-import { login } from '../../redux/api/authapi.js';
-import { loginSuccess, loginFail, fetchUserById } from '../../redux/reducers/auth.js';
+import { login } from '../../redux/api/userApi.js';
+import { loginFail, loginSuccess, fetchUserById} from '../../redux/reducers/auth.js';
+
+
 import { useDispatch, useSelector } from 'react-redux'; 
 
 
     const LoginPage = () => {
+        const {isAuthenticated}= useSelector((state) => state.signin);
+        useEffect(() => {
+            console.log(isAuthenticated)
+             
+        if(isAuthenticated === true){
+            return <Redirect to ="/home" />
+        }
+        },[isAuthenticated]);
+        
         const history = useHistory();
         const dispatch = useDispatch();
         const [formData, setFormData] = useState ({
@@ -26,31 +37,30 @@ import { useDispatch, useSelector } from 'react-redux';
         const onSubmit = async e => {
             e.preventDefault();
             try {
-                
-                const success = await login({email, password});
-                
-                
-                    if (success) {
-                        dispatch(loginSuccess());
-                        console.log('helloworld');
-                        dispatch(fetchUserById());
-                        console.log('helloworld')
-                        history.push('/home');
-                    }
-                  } catch (err) {
+                const isAuth = await login({email, password});
+                console.log(isAuth);
+                dispatch(loginSuccess());
+                dispatch(fetchUserById());
+                history.push('/home');
+                } catch (err) {
                 console.log(err.message);
-                dispatch(loginFail());
+                dispatch(loginFail(err.message));
                 
             }
         }
-        const {isAuthenticated}= useSelector((state) => state.signin);
-            if(isAuthenticated){
-                history.push('/home')
-            }
+        
+       
+           
+             
+        if(isAuthenticated === true){
+            return <Redirect to ="/home" />
+        }
+       
+      
         
         return ( 
             <section className="login-form">
-                <form onSubmit = {e => onSubmit(e)}>
+                <form onSubmit = {onSubmit}>
                     <input 
                         type="email" 
                         className="login-form__email"

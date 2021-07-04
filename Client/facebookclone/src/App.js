@@ -8,19 +8,19 @@ import store from "./redux/store.js";
 import HomePage from "./pages/HomePage/index.js";
 import Messagespage from "./pages/MessagesPage/index.js";
 import SignInPage from "./pages/SignInPage/index.js";
-import LoginPage from "./pages/LoginPage/index";
+import LoginPage from "./pages/LoginPage/login";
 import ProfilePage from "./pages/Profile/index.js";
 //!
 
 //Private Routing
-import PrivateRoute from '../src/pages/utilities/PrivateRoute.js';
+import PrivateRoute from './pages/utilities/PrivateRoute.js';
 
 //redux components
 
 import {  fetchUserById  } from "../src/redux/reducers/auth.js";
 
 //setAuthToken
-import setAuthToken from '../src/pages/utilities/setAuthToken.js';
+import setAuthToken from './pages/utilities/setAuthToken.js';
 if(localStorage.token){
   setAuthToken(localStorage.token);
 }
@@ -31,7 +31,8 @@ const App = () => {
   
   useEffect(() => {
     store.dispatch(fetchUserById());
-  }, [store]);
+    
+  }, []);
   
   
   return (

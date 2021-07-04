@@ -1,17 +1,25 @@
 import "../../css/style.css";
 
-import React, { useState } from "react";
-import {useHistory} from 'react-router-dom';
+import React, { useState, useEffect} from "react";
+import {useHistory, Redirect} from 'react-router-dom';
 
-import { register } from "../../redux/api/authapi.js";
+import { register } from "../../redux/api/userApi.js";
 import { signinSuccess, signinFail, fetchUserById } from "../../redux/reducers/auth.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // import {loadUser} from '../../redux/reducers/auth.js';
 
 
   const SignInPage = () => {
     // let reduxStoreNumber = useSelector((state) => state.authReducers); //! this reduxNumber variable stores the redux state
+    const {isAuthenticated}= useSelector((state) => state.signin);
+        useEffect(() => {
+            console.log(isAuthenticated)
+             
+        if(isAuthenticated === true){
+            return <Redirect to ="/home" />
+        }
+        },[isAuthenticated]);
     const dispatch = useDispatch();
     const history = useHistory();
     const [formData, setFormData] = useState({
@@ -41,8 +49,8 @@ import { useDispatch } from "react-redux";
 
         if (success) {
           dispatch(signinSuccess());
-          // dispatch(fetchUserById());
-          console.log('hello world')
+          dispatch(fetchUserById());
+          
           history.push('/home');
         }else {
             dispatch(signinFail());
