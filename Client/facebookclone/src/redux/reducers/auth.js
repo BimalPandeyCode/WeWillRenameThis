@@ -80,6 +80,7 @@ export const fetchUserById = () => async (dispatch) => {
   
   if(res.status === 200){
     dispatch(UserLoaded(res.data));
+  
   } 
 
   

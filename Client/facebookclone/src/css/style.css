@@ -321,7 +321,7 @@ body {
       width: 8px; }
   .home_2 {
     width: 50%;
-    padding-left: 33%; }
+    margin-left: 33%; }
   .home_middle {
     place-items: center; }
   .home_3 {
@@ -453,10 +453,14 @@ body {
 .create-post {
   padding: 5px;
   height: auto;
-  width: 60rem;
+  width: 40rem;
   border-radius: .5rem;
   background-color: #fff;
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 10rem;
+  left: 38%;
+  z-index: 1; }
   .create-post__seen {
     width: 4rem;
     display: inline-block;
@@ -469,20 +473,35 @@ body {
   .create-post__textarea {
     display: block;
     margin: 1rem;
-    width: 58rem;
+    width: 38rem;
     outline: none;
-    background-color: #eee;
+    background-color: #fff;
     border: none;
     font-size: 2rem;
-    height: auto; }
+    height: 40px; }
   .create-post__add-photo {
-    width: 54rem;
+    width: 35rem;
     height: 5rem;
     border: 1px solid black;
     font-size: 2rem;
     font-weight: 500;
-    margin: 0 3rem;
+    margin: 0 auto;
     border-radius: .5rem; }
+  .create-post__post {
+    margin: 1rem auto; }
+
+.header {
+  display: flex;
+  place-items: center;
+  justify-content: space-between; }
+  .header__title {
+    margin-left: 13rem; }
+  .header__right {
+    font-size: 3rem;
+    background-image: linear-gradient(to right, #000, #000);
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer; }
 
 .contact {
   height: 5rem;
@@ -571,3 +590,30 @@ ul {
   list-style: none;
   display: flex;
   justify-content: flex-start; }
+
+.createPost {
+  width: 50rem;
+  padding: 1.5rem;
+  height: 6rem;
+  background-color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  padding: 1rem;
+  margin-top: 2rem;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2); }
+  .createPost__profilePicture {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%; }
+  .createPost__textInput {
+    margin: 1rem;
+    height: 3rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: #f7f7f7;
+    width: 44rem;
+    padding: 1rem;
+    font-size: 1.4rem; }

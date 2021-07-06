@@ -46,7 +46,7 @@ router.post('/',auth,[
 //@access private
 router.get('/',auth, async (req, res) =>{
     try {
-        const posts = await Post.find();
+        const posts = await Post.find().sort({createdAt:-1});
         if(!posts){
             return res.status(400).json({message:'No posts found'});
         }

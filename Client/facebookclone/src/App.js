@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store.js";
 
 // *pages
-import HomePage from "./pages/HomePage/index.js";
+import HomePage from "./pages/HomePage/home.js";
 import Messagespage from "./pages/MessagesPage/index.js";
 import SignInPage from "./pages/SignInPage/index.js";
 import LoginPage from "./pages/LoginPage/login";
@@ -21,6 +21,8 @@ import {  fetchUserById  } from "../src/redux/reducers/auth.js";
 
 //setAuthToken
 import setAuthToken from './pages/utilities/setAuthToken.js';
+
+
 if(localStorage.token){
   setAuthToken(localStorage.token);
 }
@@ -28,7 +30,7 @@ if(localStorage.token){
 
 
 const App = () => {
-  
+    
   useEffect(() => {
     store.dispatch(fetchUserById());
     

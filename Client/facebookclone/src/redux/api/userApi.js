@@ -42,5 +42,30 @@ return new Promise( async(resolve, reject) =>{
          
      }
     });
-  }
-  
+  };
+
+
+  export const createPost = async({text}) =>{
+   
+    return new Promise( async(resolve, reject) =>{
+      try{
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+         }
+         const body = JSON.stringify({text});
+       
+         const res = await axios.post('http://localhost:4000/api/Post', body, config);
+        
+         resolve(res.data);
+        
+         } catch (err) {
+             console.log('hellow world')
+             console.log(err.message);
+             reject(err);
+             
+             
+         }
+        });
+      }

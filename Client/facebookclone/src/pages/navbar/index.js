@@ -8,7 +8,7 @@ import {useSelector} from 'react-redux';
 const Navbar = () => {
   const error = useSelector((state) => state.signin.user) 
   if(error!== null){
-    const {firstname} = error
+    const {firstname} =error;
     return (
       <nav className="navbar_1">
    
@@ -65,15 +65,14 @@ const Navbar = () => {
         
         
       </nav>
-  
-  
-  
     );
-} else{
-  return (
-    <></>
-  )
-}
-}
+  } else{
+    return (
+      <></>
+    )
+  }
+  
+  
+};
 
 export default Navbar;
